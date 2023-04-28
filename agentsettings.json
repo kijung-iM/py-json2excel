@@ -1,0 +1,3079 @@
+{
+  "long_active_alert_limit": {
+    "key": "long_active_alert_limit",
+    "group": [
+      "alarmOption",
+      "delayedActiveTransaction"
+    ],
+    "description": {
+      "ko": "액티브 트랜잭션 경과 시간 기준 알림을 발행할 임계치를 지정합니다.",
+      "en": "Set the alarm threshold of elapsed time of active transaction.",
+      "ja": "アクティブランザクションの経過時間を元に警告通知を行う閾値を指定します。"
+    },
+    "badge": {
+      "red": "Java 2.0_24+"
+    },
+    "defaultValue": "0",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "long_active_alert_interval": {
+    "key": "long_active_alert_interval",
+    "group": [
+      "alarmOption",
+      "delayedActiveTransaction"
+    ],
+    "description": {
+      "ko": "액티브 트랜잭션의 경과 시간 기준 알림을 감지할 체크 주기를 지정합니다.",
+      "en": "Set the interval to check where the active transaction is running over the limit.",
+      "ja": "アクティブトランザクションの経過時間基準警告通知を行うためのチェック周期を指定します。"
+    },
+    "badge": {
+      "red": "Java 2.0_24+"
+    },
+    "defaultValue": "30000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "recursive_max": {
+    "key": "recursive_max",
+    "group": [
+      "alarmOption",
+      "recursiveTransactionCall"
+    ],
+    "description": {
+      "ko": "재귀호출 발생 회수 기준 알림을 발행할 임계치를 지정합니다.\n                    HTTTP URL 재귀호출을 대상으로 합니다.\n                    jsp:forward를 통해 호출되는 케이스를 포함합니다.",
+      "en": "Set the alarm threshold of transaction recursive call.\n                    The target is HTTTP URL recursive call.\n                    It contain the call by jsp:forward.",
+      "ja": "ランザクション再帰呼出回数を元にイベント通知の基準を指定します。\n                    HTTTP URLの再帰呼出を対象とします。\n                    jsp:forwardによる呼出を含めます。"
+    },
+    "defaultValue": "1000000",
+    "type": "number",
+    "unit": "count"
+  },
+  "recursive_event_interval": {
+    "key": "recursive_event_interval",
+    "group": [
+      "alarmOption",
+      "recursiveTransactionCall"
+    ],
+    "description": {
+      "ko": "재귀호출 이벤트 알림의 중복 발행 억제 기간을 지정합니다.",
+      "en": "Set the time to prevent the same alarm when transaction recursive call event is triggered.",
+      "ja": "トランザクション再帰呼出イベント発生の際、重複イベント通知を抑止する期間を指定します。"
+    },
+    "defaultValue": "300000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "reject_event_enabled": {
+    "key": "reject_event_enabled",
+    "group": [
+      "throttling",
+      "control"
+    ],
+    "description": {
+      "ko": "쓰로틀링 제한 시 이벤트 알림 발행 여부를 설정합니다.",
+      "en": "Trigger alarm when the rejection is triggered.",
+      "ja": "rejectルールによりトランザクションが制限された際、イベント通知を行うかを指定します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "reject_event_interval": {
+    "key": "reject_event_interval",
+    "group": [
+      "throttling",
+      "control"
+    ],
+    "description": {
+      "ko": "쓰로틀링 제한으로 인한 이벤트 알림 발행 시, 중복 이벤트 억제 시간을 지정합니다.",
+      "en": "Set the time to prevent the same alarm when throttling the transaction is rejected.",
+      "ja": "rejectルールによりトランザクションが制限された際、重複イベント通知を抑止する期間を指定します。"
+    },
+    "defaultValue": "300000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "httpc_event_enabled": {
+    "key": "httpc_event_enabled",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "HTTP outbound 호출 오류 발생 시, 이벤트 알림 발행 여부를 설정합니다.",
+      "en": "Trigger alarm when HTTP outbound call is failed.",
+      "ja": "HTTPアウトバウンド呼出失敗の際、イベント通知するかを指定します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "httpc_event_interval": {
+    "key": "httpc_event_interval",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "HTTP outbound 호출 오류 발생 시, 중복 이벤트 억제 시간을 지정합니다.",
+      "en": "Set the time to prevent the same alarm when HTTP outbound call is failed.",
+      "ja": "HTTPアウトバウンド呼出失敗の際、重複イベント通知を抑止する期間を指定します。"
+    },
+    "defaultValue": "300000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "profile_error_jdbc_fetch_max": {
+    "key": "profile_error_jdbc_fetch_max",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "TOO_MANY_FETCH 에러로 식별할 SQL의 결과 취득 건수 임계치를 지정합니다.",
+      "en": "Set the count of records to mark as TOO_MANY_FETCH error.",
+      "ja": "TOO_MANY_FETCHエラーと識別したいSQL結果件数を指定します。"
+    },
+    "defaultValue": "10000",
+    "type": "number",
+    "unit": "건"
+  },
+  "profile_error_sql_time_max": {
+    "key": "profile_error_sql_time_max",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "TOO_SLOW 에러로 식별할 SQL 수행 시간 임계치를 지정합니다.",
+      "en": "Set the response time to mark as TOO_SLOW error.",
+      "ja": "TOO_SLOWエラーと識別したいSQLの応答時間を指定します。"
+    },
+    "defaultValue": "30000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "heap_event_enabled": {
+    "key": "heap_event_enabled",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "힙 사용량 임계치 도달 시, 이벤트 알림 발행 여부를 설정합니다.",
+      "en": "Trigger alarm when heap usage exceeds the threshold.",
+      "ja": "ヒープメモリの閾値に到達した際にイベント通知を発行するかを指定します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "heap_event_percent": {
+    "key": "heap_event_percent",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "힙 사용량 임계치를 지정합니다.",
+      "en": "Set the alarm threshold of heap usage.",
+      "ja": "ヒープメモリの閾値を指定します。"
+    },
+    "defaultValue": "90",
+    "type": "number",
+    "unit": "%"
+  },
+  "heap_event_duration": {
+    "key": "heap_event_duration",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "힙 사용량 알림 발행을 위하 지속시간 조건을 지정합니다.",
+      "en": "Set the　duration of heap usage to trigger alarm.",
+      "ja": "ヒープメモリイベント通知の期間閾値を指定します。"
+    },
+    "defaultValue": "30000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "heap_event_interval": {
+    "key": "heap_event_interval",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "힙 사용량 임계치 도달 시, 중복 이벤트 억제 시간을 지정합니다.",
+      "en": "Set the time to prevent the same alarm when heap usage alarm is triggered.",
+      "ja": "ヒープメモリイベント発生の際、重複イベント通知を抑止する期間を指定します。"
+    },
+    "defaultValue": "300000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "heap_event_action": {
+    "key": "heap_event_action",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "힙 사용량 이벤트 발생 시, 실행할 동적 로딩 코드에 전달할 ID를 지정합니다.\n                    {에이전트 설치 경로}/plugin/ActionScript.x에 작성한 코드에 $id로 전달됩니다.",
+      "en": "Set the ID to pass to dynamic loading code when heap usage alarm is triggered.\n                    $id is passed to the code written in {install path of agent}/plugin/ActionScript.x.",
+      "ja": "ヒープメモリイベント発生の際, 実行するダイナミックコードに伝達するIDを指定します。\n                    {エージェントのインストール位置}/plugin/ActionScript.xに作成したコードへ$idとして伝達します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "disk_event_enabled": {
+    "key": "disk_event_enabled",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "디스크 사용량 임계치 도달 시, 이벤트 알림 발행 여부를 설정합니다.",
+      "en": "Trigger alarm when disk usage exceeds the threshold.",
+      "ja": "ディスク使用量の閾値に到達した際にイベント通知を発行するかを指定します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "disk_event_percent": {
+    "key": "disk_event_percent",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "디스크 사용량 임계치를 지정합니다.",
+      "en": "Set the alarm threshold of disk usage.",
+      "ja": "ディスク使用量の閾値を指定します。"
+    },
+    "defaultValue": "90",
+    "type": "number",
+    "unit": "%"
+  },
+  "disk_event_duration": {
+    "key": "disk_event_duration",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "디스크 사용량 알림 발행 지속시간을 지정합니다.",
+      "en": "Set the　duration of disk usage to trigger alarm.",
+      "ja": "ディスクイベント通知の期間閾値を指定します。"
+    },
+    "defaultValue": "30000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "disk_event_interval": {
+    "key": "disk_event_interval",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "디스크 사용량 임계치 도달 시, 중복 이벤트 억제 시간을 지정합니다.",
+      "en": "Set the time to prevent the same alarm when disk usage event is triggered.",
+      "ja": "ディスク使用量イベント発生の際、重複イベント通知を抑止する期間を指定します。"
+    },
+    "defaultValue": "300000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "disk_event_action": {
+    "key": "disk_event_action",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "디스크 사용량 이벤트 발생 시, 실행할 동적 로딩 코드에 전달할 ID를 지정합니다.\n                    {에이전트 설치 경로}/plugin/ActionScript.x에 작성한 코드에 $id로 전달됩니다.",
+      "en": "Set the ID to pass to dynamic loading code when disk usage alarm is triggered.\n                    $id is passed to the code written in {install path of agent}/plugin/ActionScript.x.",
+      "ja": "ヒープメモリイベント発生の際, 実行するダイナミックコードに伝達するIDを指定します。\n                    {エージェントのインストール位置}/plugin/ActionScript.xに作成したコードへ$idとして伝達します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "cpu_event_enabled": {
+    "key": "cpu_event_enabled",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "CPU 사용량 임계치 도달 시, 이벤트 알림 발행 여부를 설정합니다.",
+      "en": "Trigger alarm when cpu usage exceeds the threshold.",
+      "ja": "CPU使用量の閾値に到達した際にイベント通知を発行するかを指定します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "cpu_event_percent": {
+    "key": "cpu_event_percent",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "CPU 사용량 임계치를 지정합니다.",
+      "en": "Set the alarm threshold of cpu usage.",
+      "ja": "CPU使用量の閾値を指定します。"
+    },
+    "defaultValue": "90",
+    "type": "number",
+    "unit": "%"
+  },
+  "cpu_event_duration": {
+    "key": "cpu_event_duration",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "CPU 사용량 알림 발행 지속시간 조건을 지정합니다.",
+      "en": "Set the　duration of　CPU usage to trigger alarm.",
+      "ja": "CPUイベント通知の期間閾値を指定します。"
+    },
+    "defaultValue": "30000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "cpu_event_interval": {
+    "key": "cpu_event_interval",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "CPU 사용량 임계치 도달 시, 중복 이벤트 억제 시간을 지정합니다.",
+      "en": "Set the time to prevent the same alarm when CPU usage event is triggered.",
+      "ja": "CPU使用量イベント発生の際、重複イベント通知を抑止する期間を指定します。"
+    },
+    "defaultValue": "300000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "cpu_event_action": {
+    "key": "cpu_event_action",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "CPU 사용량 이벤트 발생 시, 실행할 동적 로딩 코드에 전달할 ID를 지정합니다.\n                    {에이전트 설치 경로}/plugin/ActionScript.x에 작성한 코드에 $id로 전달됩니다.",
+      "en": "Set the ID to pass to dynamic loading code when cpu usage alarm is triggered.\n                    $id is passed to the code written in {install path of agent}/plugin/ActionScript.x.",
+      "ja": "CPUイベント発生の際, 実行するダイナミックコードに伝達するIDを指定します。\n                    {エージェントのインストール位置}/plugin/ActionScript.xに作成したコードへ$idとして伝達します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "exception_event_enabled": {
+    "key": "exception_event_enabled",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "Exception 발생 시, 이벤트 알림 발행 여부를 설정합니다.",
+      "en": "Trigger alarm when exception is thrown.",
+      "ja": "Exceptionの発生の際にイベント通知を発行するかを指定します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "exception_event_interval": {
+    "key": "exception_event_interval",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "Exception 발생 시, 중복 이벤트 억제 시간을 지정합니다.",
+      "en": "Set the time to prevent the same alarm when　Exception is thrown.",
+      "ja": "Exception発生の際、重複イベント通知を抑止する期間を指定します。"
+    },
+    "defaultValue": "60000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "exception_event_set": {
+    "key": "exception_event_set",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "Exception 발생 시, 이벤트 알림을 발행할 Exception을 지정합니다.\n                    복수 등록 시 콤마 구분자를 사용합니다.",
+      "en": "Set the exceptions to trigger alarm when exception is thrown.",
+      "ja": "Exception発生の際、イベント通知対象のExceptionを指定します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "exception_event_action": {
+    "key": "exception_event_action",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "Exception 발생 시, 실행할 동적 로딩 코드에 전달할 ID를 지정합니다.\n                    {에이전트 설치 경로}/plugin/ActionScript.x에 작성한 코드에 $id로 전달됩니다.",
+      "en": "Set the ID to pass to dynamic loading code when exception is thrown.\n                    $id is passed to the code written in {install path of agent}/plugin/ActionScript.x.",
+      "ja": "Exceptionイベント発生の際, 実行するダイナミックコードに伝達するIDを指定します。\n                    {エージェントのインストール位置}/plugin/ActionScript.xに作成したコードへ$idとして伝達します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "ignore_exceptions": {
+    "key": "ignore_exceptions",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "Exception 발생 시, 이벤트 알림 및 통계 정보 취득을 억제할 Exception을 지정합니다.\n                    복수 등록 시 콤마 구분자를 사용합니다.",
+      "en": "Set the exceptions to skip alarm when exception is thrown.",
+      "ja": "Exception発生の際、イベント通知を抑止するExceptionを指定します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "biz_exceptions": {
+    "key": "biz_exceptions",
+    "group": [
+      "alarmOption",
+      "httpOutboundCall"
+    ],
+    "description": {
+      "ko": "Exception 발생 시, 이벤트 알림을 억제할 Business Exception을 지정합니다.\n                    지정한 Business Exception에 대해서는, 이벤트 레벨이 INFO로 변경되며 통계 정보만 집계됩니다.\n                    복수 등록 시 콤마 구분자를 사용합니다.",
+      "en": "Set the exceptions to skip alarm when business exception is thrown.\n                    When the Business Exception is thrown, the event level is changed as INFO and only the statistic information is collected.",
+      "ja": "Business Exception発生の際、イベント通知を抑止するBusiness Exceptionを指定します。\n                    指定したBusiness Exception発生の際、イベントレベルをINFOに変更し統計情報だけを集計します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "dbc_dup_event_enabled": {
+    "key": "dbc_dup_event_enabled",
+    "group": [
+      "alarmOption",
+      "dbConnectionDuplication"
+    ],
+    "description": {
+      "ko": "DB connection이 중복 할당되었을 때, 이벤트 알림 발행 여부를 설정합니다.",
+      "en": "Trigger alarm when db connection is assigned to multiple resources.",
+      "ja": "DBコネクションが複数のリソースに同時割り当てられた場合、イベント通知するかを指定します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "dbc_dup_fullstack_enabled": {
+    "key": "dbc_dup_fullstack_enabled",
+    "group": [
+      "alarmOption",
+      "dbConnectionDuplication"
+    ],
+    "description": {
+      "ko": "DB connection이 중복 할당되었을 때, Stack 확보 여부를 설정합니다.",
+      "en": "Acquire stack when db connection is assigned to multiple resources.",
+      "ja": "DBコネクションが複数のリソースに同時割り当てられた場合、スタックを確保します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "tx_caller_meter_enabled": {
+    "key": "tx_caller_meter_enabled",
+    "group": [
+      "topology"
+    ],
+    "description": {
+      "ko": "에이전트에의 호출 요약 정보의 수집을 활성화합니다.",
+      "en": "Enable to collect the request summary to the agent.",
+      "ja": "エージェントへのリクエストサマリー情報を収集します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "httpc_host_meter_enabled": {
+    "key": "httpc_host_meter_enabled",
+    "group": [
+      "topology"
+    ],
+    "description": {
+      "ko": "외부 호출 요약 정보의 수집을 활성화합니다.",
+      "en": "Enable to collect the http outbound call summary.",
+      "ja": "HTTPアウトバウンド呼出のサマリー情報を収集します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "sql_dbc_meter_enabled": {
+    "key": "sql_dbc_meter_enabled",
+    "group": [
+      "topology"
+    ],
+    "description": {
+      "ko": "데이터베이스 호출 요약 정보의 수집을 활성화합니다.",
+      "en": "Enable to collect the database call summary.",
+      "ja": "データベース呼出のサマリー情報を収集します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "actx_meter_enabled": {
+    "key": "actx_meter_enabled",
+    "group": [
+      "topology"
+    ],
+    "description": {
+      "ko": "액티브 트랜잭션 수 수집을 활성화합니다.",
+      "en": "Enable to collect the number of active transaction.",
+      "ja": "アクティブトランザクション数を収集します。"
+    },
+    "badge": {
+      "red": "Java 1.7.1+"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "mtrace_enabled": {
+    "key": "mtrace_enabled",
+    "group": [
+      "multiServerTransactionTracing",
+      "enable"
+    ],
+    "description": {
+      "ko": "어플리케이션 서버 간의 HTTP 연계 호출 발생 시, Gantt 차트 형태로 연계 호출 흐름을 추적할지의 여부를 설정합니다.\n                    활성화 시, 호출자(caller)의 ID(pcode, oid)가 헤더를 통해 전파됩니다.",
+      "en": "Trace HTTP transaction call between applications and show as Gantt chart.\n                    Set the rate to transfer caller id(pcode, oid) of HTTP transaction call via HTTP header.",
+      "ja": "アプリケーションサーバー間のHTTP呼出発生し、ガンとチャート形式で連携呼出を追跡するかを指定します。\n                    活性化の際、呼出元のID(pcode, oid)がHTTPヘッダー経由で転送されます。"
+    },
+    "badge": {
+      "red": "Java 1.6.4+"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "mtrace_alltx_enabled": {
+    "key": "mtrace_alltx_enabled",
+    "group": [
+      "multiServerTransactionTracing",
+      "enable"
+    ],
+    "description": {
+      "ko": "모든 트랜잭션에 mtid(멀티서버 트랜잭션 ID)를 발행합니다.\n                    * 모든 트랜잭션을 대상으로 MTID가 발행될 경우, 트레이스 수집량이 과도하게 증가할 수 있으므로, mtrace_basetime 옵션을 지정하여야 합니다.\n                ",
+      "en": "Enable to issue MTID(Multi Server Transaction ID) on every transaction.\n                    * Since issuing MTID on every transaction increase the size of traced data, mtrace_basetime option must be set.\n                ",
+      "ja": "全てのトランザクションへMTID(マルチサーバートランザクションID)を発行します。\n                    * 全てのトランザクションに対しMTIDを発行する場合、トレースの収集量が増加すぎるため、mtrace_basetimeオプションを指定すべきです。\n                "
+    },
+    "badge": {
+      "red": "Java 1.7.5+"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "mtrace_rate": {
+    "key": "mtrace_rate",
+    "group": [
+      "multiServerTransactionTracing",
+      "trackingRate"
+    ],
+    "description": {
+      "ko": "Java 1.7.0+부터는 mtrace_enabled 설정을 활성화 시켜야 함.",
+      "en": "Since Java 1.7.0+, mtrace_enabled is required to be set as true.",
+      "ja": "Java 1.7.0+からはmtrace_enabledオプションも必須"
+    },
+    "defaultValue": "10",
+    "type": "number",
+    "unit": "%"
+  },
+  "mtrace_basetime": {
+    "key": "mtrace_basetime",
+    "group": [
+      "multiServerTransactionTracing",
+      "trackingRate"
+    ],
+    "description": {
+      "ko": "mtrace_alltx_enabled 옵션이 활성화된 경우, 트랜잭션 트레이스 데이터의 수집량을 줄이기 위한 옵션으로 트랜잭션의 응답시간 기준 수집 대상 임계시간을 지정합니다.\n                    * MTID가 발행된 트랜잭션에는 mtrace_basetime이, MTID가 발행되지 않은 트랜잭션의 경우에는 profile_basetime 옵션이 활용됩니다.",
+      "en": "When mtrace_alltx_enabled is enabled, limit the response time of transaction for reducing the size of traced data.\n                    * mtrace_basetime is used for the transactions having MTID, profile_basetime is used for the transactions not having MTID.",
+      "ja": "mtrace_alltx_enabledオプションが活性化された場合、トランザクションのトレースデータの収集量を減らすためにトランザクション応答時間基準のしきい値を指定します。\n                    * MTIDが発行されたトランザクションにはmtrace_basetimeが、MTIDが発行されてないトランザクションにはprofile_basetimeオプションが適用されます。"
+    },
+    "badge": {
+      "red": "Java 1.7.5+"
+    },
+    "defaultValue": "0",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "stat_mtrace_enabled": {
+    "key": "stat_mtrace_enabled",
+    "group": [
+      "multiServerTransactionTracing",
+      "statistics"
+    ],
+    "description": {
+      "ko": "어플리케이션 서버 간의 HTTP 연계 호출 발생 시, 프로젝트 간 호출 통계 수집을 활성화 합니다.\n                    * 프로젝트 간 호출 통계는 호출자(caller) 및 피호출자(callee) 프로젝트 모두에 설정이 활성화 되어야 합니다.\n                    * 프로젝트 간 호출 통계 메뉴: 통계 > 트랜잭션 통계 > 트랜잭션 호출자",
+      "en": "Enable collecting statistics of HTTP transaction call between applications.\n                    * Need to set the option at both project of caller and callee.\n                    * HTTP transaction call statistics menu: Statistics > Transaction Stats. > Transaction Caller",
+      "ja": "アプリケーションサーバー間のHTTP呼出発生時、プロジェクト間の統計収集を活性化します。\n                    * プロジェクト間の呼出は呼出元(caller)及び呼出先(callee)プロジェクト両方の設定を活性化しなければなりません。\n                    * プロジェクト間の呼出統計メニュー : 統計 > トランザクション 統計 > トランザクション呼出元"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "stat_domain_enabled": {
+    "key": "stat_domain_enabled",
+    "group": [
+      "multiServerTransactionTracing",
+      "statistics"
+    ],
+    "description": {
+      "ko": "어플리케이션 서버 간의 HTTP 연계 호출 발생 시, 도메인 통계 수집을 활성화 합니다.\n                    * 도메인 호출 통계는 대상 프로젝트 모두에 설정이 활성화 되어야 합니다.\n                    * 도메인 호출 통계 메뉴: 통계 트랜잭션 통계 > 트랜잭션 도메인",
+      "en": "Enable collecting domain statistics of transaction.\n                    * Need to set the option at all target projects.\n                    * domain statistics menu: Statistics > Transaction Stats. > Transaction Domain",
+      "ja": "アプリケーションサーバー間のHTTP呼出発生時、ドメイン統計収集を活性化します。\n                    * ドメイン呼出統計は対象プロジェクト全ての設定を活性化しなければなりません。\n                    * ドメイン呼出統計メニュー : 統計 > トランザクション 統計 > トランザクションドメイン"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "stat_referer_enabled": {
+    "key": "stat_referer_enabled",
+    "group": [
+      "multiServerTransactionTracing",
+      "statistics"
+    ],
+    "description": {
+      "ko": "트랜잭션의 리퍼러 통계 추출을 활성화 합니다.\n                * 본 옵션은 \"trace_referer_enabled=true\" 옵션과 함께 사용해야 합니다.\n                * stat_referer_max_count 옵션으로 5분 동안 집계할 리퍼러 최대 개수를 지정할 수 있습니다.\n            ",
+      "en": "Enable extracting referer statistics of transaction.\n                * This option should be used with \"trace_referer_enabled=true\".\n                * The max count of referer can be set with \"stat_referer_max_count\".\n            ",
+      "ja": "トランザクションのリファラー統計抽出を活性化します。\n                * 本オプションは「trace_referer_enabled=true」と共に使う必要があります。\n                * 「stat_referer_max_count」オプションで5分間集計するリファラーの最大個数を指定できます。\n            "
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "mtrace_spec": {
+    "key": "mtrace_spec",
+    "group": [
+      "multiServerTransactionTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "호출자 통계에 수집될 어플리케이션 버전을 지정합니다.\n                    * Java의 경우 시스템 프로퍼티(JVM option)를 통해서도 설정 가능합니다.\n                    ex) -Dmtrace_spec=v1.0",
+      "en": "Set the version to be traced at transaction caller.\n                    * Can also set by system property(JVM option) in Java.\n                    ex) -Dmtrace_spec=v1.0",
+      "ja": "呼出元統計に収集するアプリケーションのバージョンを指定します。\n                    * Javaの場合システムプロパティ(JVM option)での設定も可能です。\n                    ex) -Dmtrace_spec=v1.0"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "mtrace_spec_key": {
+    "key": "mtrace_spec_key",
+    "group": [
+      "multiServerTransactionTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "호출자 통계에 수집될 'mtrace_spec' 정보 추출할 헤더 키를 지정합니다.",
+      "en": "Set the header key name to extract 'mtrace_spec'.",
+      "ja": "呼出元統計に収集する'mtrace_spec'抽出するヘッダーキーを指定します。"
+    },
+    "badge": {
+      "red": "Java 1.6.4+"
+    },
+    "defaultValue": "x-wtap-sp",
+    "unit": "string",
+    "type": "string"
+  },
+  "mtrace_poid_key": {
+    "key": "mtrace_poid_key",
+    "group": [
+      "multiServerTransactionTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "MTID 추적에 사용할 '프로젝트+에이전트' 식별자 추출용 header key name을 지정합니다.",
+      "en": "Set the header key name to extract 'project+agent' id which is used by tracing MTID.",
+      "ja": "MTID追跡に利用する'プロジェクト＋エージェント'の識別子を抽出するへーダーキーを指定します。"
+    },
+    "badge": {
+      "red": "Java 1.7.0+"
+    },
+    "defaultValue": "x-wtap-po",
+    "unit": "string",
+    "type": "string"
+  },
+  "mtrace_caller_key": {
+    "key": "mtrace_caller_key",
+    "group": [
+      "multiServerTransactionTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "MTID 추적에 사용할 caller key name을 지정합니다.",
+      "en": "Set the caller key name to be used by tracing MTID.",
+      "ja": "MTID追跡に利用するcallerキーを指定します。"
+    },
+    "badge": {
+      "red": "Java 1.6.x+"
+    },
+    "defaultValue": "x-wtap-mst",
+    "unit": "string",
+    "type": "string"
+  },
+  "mtrace_callee_key": {
+    "key": "mtrace_callee_key",
+    "group": [
+      "multiServerTransactionTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "MTID 추적에 사용할 callee key name을 지정합니다.",
+      "en": "Set the callee key name to be used by tracing MTID.",
+      "ja": "MTID追跡に利用するcalleeキーを指定します。"
+    },
+    "badge": {
+      "red": "Java 1.6.x+"
+    },
+    "defaultValue": "x-wtap-tx",
+    "unit": "string",
+    "type": "string"
+  },
+  "trace_referer_enabled": {
+    "key": "trace_referer_enabled",
+    "group": [
+      "multiServerTransactionTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "트랜잭션의 리퍼러 수집을 활성화 합니다.",
+      "en": "Enable collecting referer of transaction.",
+      "ja": "トランザクションのリファラー収集を活性化します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "throttle_enabled": {
+    "key": "throttle_enabled",
+    "group": [
+      "throttling",
+      "enable"
+    ],
+    "description": {
+      "ko": "최대 동시 처리 수를 제한하기 위한 쓰로틀 기능을 활성화합니다.\n                    쓰로틀 정책의 우선 순위는 다음과 같습니다.\n                    1.block - URL, IP 기준 차단 설정이 우선 적용됩니다.\n                    2.passing - URL 기준 허용 정책은 reject 설정에 우선합니다.\n                    3.reject - block 및 passing 정책 대상을 제외하고 reject 정책이 적용됩니다.",
+      "en": "Enable throttling to limit the max concurrent transaction.\n                    The piority of throttling is like below.\n                    1.block - block by URL, IP.\n                    2.passing - allow by URL, is preferred to reject rule.\n                    3.reject - reject rule is applied except block and passing rule",
+      "ja": "最大同時処理数を制限するためのスロットル機能を活性化する。\n                    優先順位は以下を参照\n                    1.block - URL, IPにより遮断\n                    2.passing - URLにより許容、rejectルールより優先\n                    3.reject - block又はpassingルールを除き、リジェクトルールが適用"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "throttle_limit": {
+    "key": "throttle_limit",
+    "group": [
+      "throttling",
+      "control"
+    ],
+    "description": {
+      "ko": "에이전트 단위로 최대 부하 제한값(액티브 트랜잭션 수)을 지정합니다.",
+      "en": "Set the max count of active transactions per agent.",
+      "ja": "エージェント単位の最大負荷制限(活性トランザクション数)を指定します。"
+    },
+    "defaultValue": "10000",
+    "type": "number",
+    "unit": "count"
+  },
+  "throttle_rejected_message": {
+    "key": "throttle_rejected_message",
+    "group": [
+      "throttling",
+      "control"
+    ],
+    "description": {
+      "ko": "reject 옵션에 따른 쓰로틀링 제한 시 사용자에 표시될 메세지를 정의합니다.",
+      "en": "Set the message shown to user when the transaction is rejected.",
+      "ja": "rejectルールによりトランザクションが制限された際、ユーザーへ表示するメッセージを指定します。"
+    },
+    "defaultValue": "[too many request!!]",
+    "unit": "string",
+    "type": "string"
+  },
+  "throttle_rejected_forward": {
+    "key": "throttle_rejected_forward",
+    "group": [
+      "throttling",
+      "control"
+    ],
+    "description": {
+      "ko": "쓰로틀링 제한 시 사용자에 표시할 안내 페이지 URL을 지정합니다.",
+      "en": "Set the url to redirect user to when the transaction is rejected.",
+      "ja": "rejectルールによりトランザクションが制限された際、ユーザーリクエストをリダイレクトするURLを指定します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "throttle_blocking_url": {
+    "key": "throttle_blocking_url",
+    "group": [
+      "throttling",
+      "control"
+    ],
+    "description": {
+      "ko": "passing 및 reject 옵션과 무관하게 무조건적으로 처리를 거부할 URL을 지정합니다.",
+      "en": "Set URL to block regardless of passing and reject rule.",
+      "ja": "passing及びrejectオプションと関係なく、処理を拒否するURLを指定します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "throttle_blocking_ip": {
+    "key": "throttle_blocking_ip",
+    "group": [
+      "throttling",
+      "control"
+    ],
+    "description": {
+      "ko": "passing 및 reject 옵션과 무관하게 무조건적으로 처리를 거부할 remote address(IP)를 지정합니다.",
+      "en": "Set remote IP to block regardless of passing and reject rule.",
+      "ja": "passing及びrejectオプションと関係なく、処理を拒否するremote IPを指定します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "throttle_target_urls": {
+    "key": "throttle_target_urls",
+    "group": [
+      "throttling",
+      "control"
+    ],
+    "description": {
+      "ko": "white list로 쓰로틀 기능을 적용할 URL을 지정합니다.\n                    복수 지정 시 콤마 구분자를 사용합니다.",
+      "en": "Set the throttle target URLs.\n                    Can use comma separator when applying multiple.",
+      "ja": "スロットル対象URLを指定します。\n                    複数のURLを指定する場合はコンマを使います。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "throttle_passing_url": {
+    "key": "throttle_passing_url",
+    "group": [
+      "throttling",
+      "control"
+    ],
+    "description": {
+      "ko": "쓰로틀링 적용 대상에서 제외할 URL을 지정합니다.\n                    복수 지정 시 콤마 구분자를 사용합니다.",
+      "en": "Set the throttle exception URLs.\n                    Can use comma separator when applying multiple.",
+      "ja": "スロットル除外URLを指定します。\n                    複数のURLを指定する場合はコンマを使います。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "throttle_passing_url_prefix": {
+    "key": "throttle_passing_url_prefix",
+    "group": [
+      "throttling",
+      "control"
+    ],
+    "description": {
+      "ko": "쓰로틀링 적용 대상에서 제외할 URL의 prefix를 지정합니다.\n                    복수 지정 시 콤마 구분자를 사용합니다.",
+      "en": "Set the throttle exception URL prefix.\n                    Can use comma separator when applying multiple.",
+      "ja": "スロットル除外URL先頭文字列を指定します。\n                    複数のURLを指定する場合はコンマを使います。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "throttle_blocked_message": {
+    "key": "throttle_blocked_message",
+    "group": [
+      "throttling",
+      "control"
+    ],
+    "description": {
+      "ko": "요청이 차단된 사용자에 표시할 메세지를 지정합니다.",
+      "en": "Set the message shown to user when transaction is blocked.",
+      "ja": "blockルールによりトランザクションが制限された際、ユーザーへ表示するメッセージを指定します。"
+    },
+    "defaultValue": "[request blocked!!]",
+    "unit": "string",
+    "type": "string"
+  },
+  "throttle_blocked_forward": {
+    "key": "throttle_blocked_forward",
+    "group": [
+      "throttling",
+      "control"
+    ],
+    "description": {
+      "ko": "요청이 차단된 사용자에 노출할 페이지 URL을 지정합니다.",
+      "en": "Set the url to redirect user to when the transaction is blocked.",
+      "ja": "blockルールによりトランザクションが制限された際、ユーザーリクエストをリダイレクトするURLを指定します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "blocking_detect_enabled": {
+    "key": "blocking_detect_enabled",
+    "group": [
+      "throttling",
+      "convenienceOption"
+    ],
+    "description": {
+      "ko": "쓰로틀링 대상 URL 추출 기능을 활성화합니다.\n                    서버>더보기>throttling 설정 화면에 통계 정보를 노출합니다.",
+      "en": "Enable collecting statistics for target URL of throttling.\n                    SERVERS>More>Show statistics on Configuration menu.",
+      "ja": "スロットル対象URLの統計抽出機能を活性化します。\n                    サーバー>下位メニュー>throttling 설정 화면에 통계 정보를 노출합니다."
+    },
+    "badge": {
+      "red": "Java 1.5.7+"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "blocking_detect_time": {
+    "key": "blocking_detect_time",
+    "group": [
+      "throttling",
+      "convenienceOption"
+    ],
+    "description": {
+      "ko": "쓰로틀링 대상 URL 통계의 최소 응답시간을 지정합니다.",
+      "en": "Set the minimum response time of target URL statistics of throttling.",
+      "ja": "スロットル対象URL統計の最少応答時間を指定します。"
+    },
+    "badge": {
+      "red": "Java 1.5.7+"
+    },
+    "defaultValue": "10000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "blocking_detect_count": {
+    "key": "blocking_detect_count",
+    "group": [
+      "throttling",
+      "convenienceOption"
+    ],
+    "description": {
+      "ko": "쓰로틀링 대상 URL 통계가 유지할 최대 건수를 지정합니다.",
+      "en": "Set the maximum record count of target URL statistics of throttling.",
+      "ja": "スロットル対象URL統計の最大件数を指定します。"
+    },
+    "badge": {
+      "red": "Java 1.5.7+"
+    },
+    "defaultValue": "500",
+    "type": "number",
+    "unit": "건"
+  },
+  "blocking_detect_file": {
+    "key": "blocking_detect_file",
+    "group": [
+      "throttling",
+      "convenienceOption"
+    ],
+    "description": {
+      "ko": "쓰로틀링 대상 URL 통계를 저장할 파일명을 지정합니다.",
+      "en": "Set the file name of target URL statistics of throttling.",
+      "ja": "スロットル対象URL統計ファイル名を指定します。"
+    },
+    "badge": {
+      "red": "Java 1.5.7+"
+    },
+    "defaultValue": "blocking.dat",
+    "unit": "string",
+    "type": "string"
+  },
+  "auto_thread_kill_elapsed": {
+    "key": "auto_thread_kill_elapsed",
+    "group": [
+      "throttling",
+      "convenienceOption"
+    ],
+    "description": {
+      "ko": "트랜잭션 수행 시간이 지정 시간을 초과한 경우 Thread.stop()을 호출합니다.\n                    * 1000이상 지정한 경우 기능이 활성화 됩니다.",
+      "en": "Call Thread.stop() when the elapsed time of transaction is over the limit set.\n                    * It's enabled when value over 1000 is set。",
+      "ja": "トランザクションの遂行時間が指定時間を超えた場合、Thread.stop()を呼出ます。\n                    * 1000以上指定した場合活性化されます。"
+    },
+    "defaultValue": "0",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "auto_thread_kill_domain": {
+    "key": "auto_thread_kill_domain",
+    "group": [
+      "throttling",
+      "convenienceOption"
+    ],
+    "description": {
+      "ko": "auto_thread_kill_elapsed 기능을 특정 도메인별로 제어할 시 지정합니다.\n                    * 복수 등록 시 콤마 구분자를 사용합니다.",
+      "en": "auto_thread_kill_elapsed 기능을 특정 도메인별로 제어할 시 지정합니다.\n                    * 복수 등록 시 콤마 구분자를 사용합니다.",
+      "ja": "auto_thread_kill_elapsed 기능을 특정 도메인별로 제어할 시 지정합니다.\n                    * 복수 등록 시 콤마 구분자를 사용합니다."
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_user_enabled": {
+    "key": "trace_user_enabled",
+    "group": [
+      "userTracing",
+      "enable"
+    ],
+    "description": {
+      "ko": "사용자 추적 기능을 활성화 합니다. 적용 우선 순위는 아래와 같습니다.\n                    1.trace_user_using_ip - IP 기준 집계\n                    2.trace_user_using_jsession - jsessionid 기준 집계\n                    3.user_header_ticket - 특정 헤더값 기준으로 집계\n                    4.에이전트에 의해 접속자에 발행된 쿠키 기반으로 집계",
+      "en": "Enable counting user. The priority is like below.\n                    1.trace_user_using_ip - by IP\n                    2.trace_user_using_jsession - by jsessionid\n                    3.user_header_ticket - by header value\n                    4.by cookie issued by agent",
+      "ja": "ユーザーカウントの追跡機能を活性化します。適用優先順位は次を参照ください。\n                    1.trace_user_using_ip - IP 基準\n                    2.trace_user_using_jsession - jsession 基準\n                    3.user_header_ticket - 特定ヘッダー値機運\n                    4.エージェント発行クッキー基準"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "trace_user_cookie_limit": {
+    "key": "trace_user_cookie_limit",
+    "group": [
+      "userTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "사용자 추적을 위해 쿠키 발행 시, 기존 쿠키가 과다할 경우의 오버플로우 회피을 위해 쿠키 발행을 skip할 limit을 지정합니다.",
+      "en": "When issuing cookie for user counting, set the limit to prevent overflow caused by cookie counts.",
+      "ja": "ユーザー追跡のためクッキー発行の際、既存クッキーの数が大きい場合、オバーフローを回避するためクッキーの発行を行わないための上限を指定します。"
+    },
+    "defaultValue": "2048",
+    "type": "number",
+    "unit": "건"
+  },
+  "trace_user_using_ip": {
+    "key": "trace_user_using_ip",
+    "group": [
+      "userTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "remote address 기준으로 사용자를 추적합니다.\n                    false 지정 시, 쿠키 기반으로 사용자를 추적합니다.",
+      "en": "Count user by remote address.\n                    If set false, count user by cookie.",
+      "ja": "remote addressによりユーザーを数えます。\n                    If set false, count user by cookie."
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_http_client_ip_header_key": {
+    "key": "trace_http_client_ip_header_key",
+    "group": [
+      "userTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "remote address를 HTTP 헤더 값으로 대체하기 위한 헤더 키를 지정합니다.",
+      "en": "Set the header key for replacing remote address.",
+      "ja": "remote addressを入れ替えるためのヘッダーキーを指定します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "trace_user_using_jsession": {
+    "key": "trace_user_using_jsession",
+    "group": [
+      "userTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "서버 세션 기준으로 사용자를 추적합니다.\n                * jssessionid 이외의 쿠키가 사용되는 경우, trace_user_using_jsession_key 옵션을 활용합니다.",
+      "en": "Trace user by server session.\n                * If other cookie name is used, use the option of trace_user_using_jsession_key.",
+      "ja": "サーバーセッション基準でユーザーを追跡します。\n                * jssessionid以外のCookieを利用する場合、trace_user_using_jsession_keyオプションを活用します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_user_using_jsession_key": {
+    "key": "trace_user_using_jsession_key",
+    "group": [
+      "userTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "지정된 Cookie를 기준으로 사용자를 추적합니다.",
+      "en": "Trace user by designated cookie.",
+      "ja": "指定したCookie基準でユーザーを追跡します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "user_header_ticket": {
+    "key": "user_header_ticket",
+    "group": [
+      "userTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "HTTP 헤더 값 기준으로 사용자 수를 집계하고자 할 경우, 헤더 키를 지정합니다.",
+      "en": "Set the header key for counting user by http header value.",
+      "ja": "HTTPヘッダー値でユーザー数を数えたい場合、ヘッダーキーを指定します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "trace_malloc_endpoint_enabled": {
+    "key": "trace_malloc_endpoint_enabled",
+    "group": [
+      "memoryUsageTracing",
+      "enable"
+    ],
+    "description": {
+      "ko": "트랜잭션의 메모리 추적 기능을 활성화 합니다.",
+      "en": "Enable collecting memory allocation of transaction.",
+      "ja": "トランザクションのメモリ使用量収集を活性化します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_malloc_step_enabled": {
+    "key": "trace_malloc_step_enabled",
+    "group": [
+      "memoryUsageTracing",
+      "enable"
+    ],
+    "description": {
+      "ko": "트레이스 스텝 단위 메모리 추적 기능을 활성화 합니다.\n                    * 애플리케이션 부하를 가중시킬 수 있으므로, 디버깅 용도로만 한시적으로 적용해야 합니다.",
+      "en": "Enable collecting memory allocation of transaction trace step.\n                    * Since it can cause application load, the option must be used for a limited period.",
+      "ja": "トランザクショントレースステップのメモリ使用量収集を活性化します。\n                    * アプリケーション負荷を加重させるため、デバック目的に一時的にのみ適用すべきです。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "profile_httpc_resource_enabled": {
+    "key": "profile_httpc_resource_enabled",
+    "group": [
+      "outboundCallTracing"
+    ],
+    "description": {
+      "ko": "HTTP oubound 호출 발생 시 CPU와 메모리 사용량을 수집합니다.",
+      "en": "Trace CPU and memory usage of HTTP outbound call",
+      "ja": "アウトバウンド呼出時のCPUとメモリ使用量を収集します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "profile_position_httpc": {
+    "key": "profile_position_httpc",
+    "group": [
+      "outboundCallTracing"
+    ],
+    "description": {
+      "ko": "HTTP oubound 호출 발생 시 StackTrace를 수집하여 트레이스에 표시합니다.",
+      "en": "Trace StackTrace of HTTP outbound call and show in transaction trace.",
+      "ja": "アウトバウンド呼出時のStackTraceを確保し、トランザクションのトレースに表示します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_httpc_normalize_enabled": {
+    "key": "trace_httpc_normalize_enabled",
+    "group": [
+      "outboundCallTracing"
+    ],
+    "description": {
+      "ko": "HTTP outbound 호출 URL을 정규화 합니다.",
+      "en": "Normalize the URL of HTTP outbound call.",
+      "ja": "アウトバウンド呼出時のURLを正規化します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_httpc_normalize_urls": {
+    "key": "trace_httpc_normalize_urls",
+    "group": [
+      "outboundCallTracing"
+    ],
+    "description": {
+      "ko": "HTTP oubound 호출 URL 패턴을 지정합니다.\n                    복수 지정 시, 콤마 구분자를 사용합니다.\n                    ex> a/{v}/b",
+      "en": "Set the URL pattern of HTTP oubound call.\n                    Can use comma separator when applying multiple.\n                    ex> a/{v}/b",
+      "ja": "HTTPアウトバウンド呼出のURLパターンを指定します。\n                    複数指定する場合、コンマを使います。\n                    ex> a/{v}/b"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_httpc_patterns": {
+    "key": "hook_httpc_patterns",
+    "group": [
+      "outboundCallTracing"
+    ],
+    "description": {
+      "ko": "HTTP outbound 호출을 수행하는 {full package 클래스명}.{메소드}를 지정합니다.",
+      "en": "Set {full package class name}.{method} of HTTP outbound call.",
+      "ja": "HTTP outbound呼出を実行する{full package クラス名}.{メソッド}を指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "ds_update_interval": {
+    "key": "ds_update_interval",
+    "group": [
+      "connectionpoolSql",
+      "poolTracing"
+    ],
+    "description": {
+      "ko": "DB connection정보 수집 주기를 지정합니다.",
+      "en": "Set the period to trace DB Connection information.",
+      "ja": "DBコネクション情報を収集する間隔を指定します。"
+    },
+    "defaultValue": "5000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "dbcp_pool_enabled": {
+    "key": "dbcp_pool_enabled",
+    "group": [
+      "connectionpoolSql",
+      "poolTracing"
+    ],
+    "description": {
+      "ko": "JMX를 사용하지 않고 DBCP connection pool 정보를 추적합니다.",
+      "en": "Trace DBCP connection pool instead of JMX.",
+      "ja": "JMXの代わりにDBCPコネクションプールを追跡します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "hikari_pool_enabled": {
+    "key": "hikari_pool_enabled",
+    "group": [
+      "connectionpoolSql",
+      "poolTracing"
+    ],
+    "description": {
+      "ko": "JMX를 사용하지 않고 hikari DB connection pool 정보를 추적합니다.",
+      "en": "Trace hikari connection pool instead of JMX.",
+      "ja": "JMXの代わりにhikariコネクションプールを追跡します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "tomcat_ds_enabled": {
+    "key": "tomcat_ds_enabled",
+    "group": [
+      "connectionpoolSql",
+      "poolTracing"
+    ],
+    "description": {
+      "ko": "JMX를 사용하여 tomcat DB connection pool 정보를 추적합니다.",
+      "en": "Trace tomcat connection pool using JMX.",
+      "ja": "JMXによりtomcatコネクションプールを追跡します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "tomcat_pool_enabled": {
+    "key": "tomcat_pool_enabled",
+    "group": [
+      "connectionpoolSql",
+      "poolTracing"
+    ],
+    "description": {
+      "ko": "JMX를 사용하지 않고 tomcat DB connection pool 정보를 추적합니다.",
+      "en": "Trace tomcat connection pool instead of JMX.",
+      "ja": "JMXの代わりにtomcatコネクションプールを追跡します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "weblogic_ds_enabled": {
+    "key": "weblogic_ds_enabled",
+    "group": [
+      "connectionpoolSql",
+      "poolTracing"
+    ],
+    "description": {
+      "ko": "JMX를 사용하여 weblogic DB connection pool 정보를 추적합니다.",
+      "en": "Trace weblogic connection pool using JMX.",
+      "ja": "JMXによりweblogicコネクションプールを追跡します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "weblogic_pool_enabled": {
+    "key": "weblogic_pool_enabled",
+    "group": [
+      "connectionpoolSql",
+      "poolTracing"
+    ],
+    "description": {
+      "ko": "JMX를 사용하지 않고 weblogic DB connection pool 정보를 추적합니다.",
+      "en": "Trace weblogic connection pool instead of JMX.",
+      "ja": "JMXの代わりにweblogicコネクションプールを追跡します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "jeus_pool_enabled": {
+    "key": "jeus_pool_enabled",
+    "group": [
+      "connectionpoolSql",
+      "poolTracing"
+    ],
+    "description": {
+      "ko": "JMX를 사용하지 않고 jeus DB connection pool 정보를 추적합니다.",
+      "en": "Trace jeus connection pool instead of JMX.",
+      "ja": "JMXの代わりにjeusコネクションプールを追跡します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "hook_jdbc_con_classes": {
+    "key": "hook_jdbc_con_classes",
+    "group": [
+      "connectionpoolSql",
+      "jdbcTracing"
+    ],
+    "description": {
+      "ko": "JDBC Connection 클래스를 지정합니다.",
+      "en": "Set the class of JDBC Connection.",
+      "ja": "JDBCコネクションクラスを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_jdbc_stmt_classes": {
+    "key": "hook_jdbc_stmt_classes",
+    "group": [
+      "connectionpoolSql",
+      "jdbcTracing"
+    ],
+    "description": {
+      "ko": "JDBC Statement 클래스를 지정합니다.",
+      "en": "Set the class of JDBC Statement.",
+      "ja": "JDBC Statementクラスを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_jdbc_pstmt_classes": {
+    "key": "hook_jdbc_pstmt_classes",
+    "group": [
+      "connectionpoolSql",
+      "jdbcTracing"
+    ],
+    "description": {
+      "ko": "JDBC PreparedStatement 클래스를 지정합니다.",
+      "en": "Set the class of JDBC PreparedStatement.",
+      "ja": "JDBC PreparedStatementクラスを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_jdbc_cstmt_classes": {
+    "key": "hook_jdbc_cstmt_classes",
+    "group": [
+      "connectionpoolSql",
+      "jdbcTracing"
+    ],
+    "description": {
+      "ko": "JDBC CallableStatement 클래스를 지정합니다.",
+      "en": "Set the class of JDBC CallableStatement.",
+      "ja": "JDBC CallableStatementクラスを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_jdbc_rs_classes": {
+    "key": "hook_jdbc_rs_classes",
+    "group": [
+      "connectionpoolSql",
+      "jdbcTracing"
+    ],
+    "description": {
+      "ko": "JDBC ResultSet 클래스를 지정합니다.",
+      "en": "Set the class of JDBC ResultSet.",
+      "ja": "JDBC ResultSetクラスを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_jdbc_wrapping_driver_patterns": {
+    "key": "hook_jdbc_wrapping_driver_patterns",
+    "group": [
+      "connectionpoolSql",
+      "jdbcTracing"
+    ],
+    "description": {
+      "ko": "DB2와 같이 난독 처리된 JDBC 드라이버는 hook_jdbc_xxx 옵션으로 직접 BCI 수행이 어려워\n                    Wrapper 방식으로 SQL을 추적하기 위해 JDBC 드라이버의 connect를 지정하여 추적합니다.",
+      "en": "Because JDBC driver obfuscated like DB2 is hard to use BCI using hook_jdbc_xxx option,\n                    trace by setting JDBC driver's connect method to trace by Wrapper.",
+      "ja": "DB2のように難読化されたJDBCドライバーはhook_jdbc_xxxオプションで直接BCIし難く、\n                    Wrapper方式にSQLを追跡するためJDBCドライバーのconnectを指定し追跡します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "custom_pool_classes": {
+    "key": "custom_pool_classes",
+    "group": [
+      "connectionpoolSql",
+      "jdbcTracing"
+    ],
+    "description": {
+      "ko": "Connection Pool이 수집되지 않는 경우, 클래스명을 지정합니다.",
+      "en": "Set the class name when failed to trace Connection Pool.",
+      "ja": "Connection Poolの情報が収集されない場合、クラス名を指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_connection_open_patterns": {
+    "key": "hook_connection_open_patterns",
+    "group": [
+      "connectionpoolSql",
+      "jdbcTracing"
+    ],
+    "description": {
+      "ko": "DB connection 오픈 시 호출되는 메소드를 등록합니다.",
+      "en": "Set the method used when opening the DB Connection.",
+      "ja": "DBコネクションをオープンする際使われるメソッドを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "profile_connection_open_enabled": {
+    "key": "profile_connection_open_enabled",
+    "group": [
+      "connectionpoolSql",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "DB connection 오픈 정보를 추적하여 트레이스에 표시합니다.",
+      "en": "Trace DB connection open and show in transaction trace.",
+      "ja": "DBコネクションオープン情報を収集しトランザクションのトレースに表示します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "profile_dbc_close": {
+    "key": "profile_dbc_close",
+    "group": [
+      "connectionpoolSql",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "DB connection클로즈 정보를 추적하여 트레이스에 표시합니다.",
+      "en": "Trace DB connection close and show in transaction trace.",
+      "ja": "DBコネクションクローズ情報を収集しトランザクションのトレースに表示します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "profile_sql_param_enabled": {
+    "key": "profile_sql_param_enabled",
+    "group": [
+      "connectionpoolSql",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "SQL 파라메타를 암호화하여 수집합니다.\n                    복호화키는 {에이전트 설치 위치}/paramkey.txt 에 6자리로 지정합니다.\n                    미지정 시에는 랜덤 값이 자동으로 생성됩니다. 에이전트 별로 상이하므로 원하는 복호화키를 지정합니다.",
+      "en": "encrypt SQL parameters\n                    Decryption key is saved in {agent install path}/paramkey.txt.\n                    Random character is issued if not set. Please set your own key because random key is different for the agents.",
+      "ja": "SQLパラメタを暗号化し収集します。\n                    復号化キーは{エージェントのインストールパス}/paramkey.txtに指定します。\n                    指定してない場合はランダムで自動生成されます。エージェントごとに別のキーが生成されますので復号化キーを設定してください。"
+    },
+    "badge": {
+      "yellow": "caution"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "profile_sql_resource_enabled": {
+    "key": "profile_sql_resource_enabled",
+    "group": [
+      "connectionpoolSql",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "SQL 수행시의 CPU 및 메모리 사용량을 수집합니다.",
+      "en": "Trace CPU and memory usage when executing SQL.",
+      "ja": "SQL実行時のCPU及びメモリ使用量を収集します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "profile_update_count": {
+    "key": "profile_update_count",
+    "group": [
+      "connectionpoolSql",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "UPDATE SQL 수행시의 UPDATE 건수를 수집합니다.",
+      "en": "Trace update records count when executing SQL.",
+      "ja": "UPDATE SQL実行時のアップデート件数を収集します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "profile_position_sql": {
+    "key": "profile_position_sql",
+    "group": [
+      "connectionpoolSql",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "SQL 수행 시점의 StackTrace를 확보하여 트레이스에 표시합니다.",
+      "en": "Trace StackTrace when executing SQL and show in transaction trace.",
+      "ja": "SQL実行時のStackTraceを確保しトランザクションのトレースに表示します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_dbc_leak_enabled": {
+    "key": "trace_dbc_leak_enabled",
+    "group": [
+      "connectionpoolSql",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "DB connection 누수(leak)를 추적합니다.\n                    * 운영 서비스 적용 전에 테스트 환경에서 사전 검증 수행 후 적용해야 합니다.",
+      "en": "Trace leak of DB connection.\n                    * Need to apply to test environment first before applying to production environment.",
+      "ja": "DBコネクションのリークを追跡します。\n                    * 運営サービスに適用する前、テスト環境に事前適用し検証後に適用すべきです。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_dbc_leak_fullstack_enabled": {
+    "key": "trace_dbc_leak_fullstack_enabled",
+    "group": [
+      "connectionpoolSql",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "DB connection 누수(leak) 감지 시점의 StackTrace를 수집합니다.\n                    * CPU 사용량이 증가할 수 있으므로, 문제 추적 시에만 한시적으로 적용합니다.",
+      "en": "Trace StackTrace of DB connection leak.\n                    * Apply only temporarily when tracing problem because it can level up CPU usage.",
+      "ja": "DBコネクションリーク時のStackTraceを確保します。\n                    * CPU使用率が高まることがありますので、イシュー追跡時のみ一時的に適用します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_sql_normalize_enabled": {
+    "key": "trace_sql_normalize_enabled",
+    "group": [
+      "connectionpoolSql",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "SQL문에서 파라메타에 해당하는 값을 치환하여 SQL문을 정규화 합니다.",
+      "en": "Normalize SQL by replacing parameters.",
+      "ja": "SQL文からパラメタに該当するところを置換しSQL文を正規化します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "auto_oname_enabled": {
+    "key": "auto_oname_enabled",
+    "group": [
+      "agentManagement",
+      "agentNaming"
+    ],
+    "description": {
+      "ko": "서버에 등록될 에이전트 이름(oname)을 서버로부터 자동 부여",
+      "en": "Enable the server assign agent name(oname).",
+      "ja": "サーバーへ登録するエージェント名(oname)をサーバーにより付与"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "auto_oname_prefix": {
+    "key": "auto_oname_prefix",
+    "group": [
+      "agentManagement",
+      "agentNaming"
+    ],
+    "description": {
+      "ko": "에이전트 이름을 서버로부터 자동 부여할 때 에이전트 이름의 prefix",
+      "en": "Set the prefix of agent name when using server side assignment.",
+      "ja": "エージェント名をサーバーかり付与する際の先頭付加文字列"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "auto_oname_reset": {
+    "key": "auto_oname_reset",
+    "group": [
+      "agentManagement",
+      "agentNaming"
+    ],
+    "description": {
+      "ko": "에이전트 이름을 새로 수집하고자 할 때 count-up하여 설정",
+      "en": "Set counted-up value when being required to get agent name again.",
+      "ja": "エージェント名を新しく収集したい場合、カウントアップし設定"
+    },
+    "defaultValue": "0",
+    "type": "number",
+    "unit": "number"
+  },
+  "shutdown": {
+    "key": "shutdown",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "에이전트의 동작을 중지하고, 서버에의 접속을 중지합니다.",
+      "en": "Stop the agent and let the agent disconnect from server.",
+      "ja": "エージェントの作動を中止し、サーバーへの接続を中止します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "enabled": {
+    "key": "enabled",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "에이전트의 기능을 활성화합니다.",
+      "en": "Enable agent functionalities.",
+      "ja": "エージェントの機能を活性化します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "counter_enabled": {
+    "key": "counter_enabled",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "카운터 추적 기능을 활성화합니다.",
+      "en": "Enable Counter.",
+      "ja": "カウンター追跡機能を活性化します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "stat_enabled": {
+    "key": "stat_enabled",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "통계정보 추적 기능을 활성화합니다.",
+      "en": "Enable collecting statistics.",
+      "ja": "統計情報追跡機能を活性化します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "sigar_enabled": {
+    "key": "sigar_enabled",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "sigar library를 통한 OS 정보 수집을 활성화합니다.",
+      "en": "Enable collecting OS information through sigar library.",
+      "ja": "sigarライブラリーによりOS情報の収集を活性化します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "active_stack_enabled": {
+    "key": "active_stack_enabled",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "액티브 스택 추적을 활성화합니다.",
+      "en": "Enable ActiveStack.",
+      "ja": "アクティブスタック追跡を活性化します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "license": {
+    "key": "license",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "프로젝트 액세스 키를 지정합니다.",
+      "en": "Set the project license.",
+      "ja": "プロジェクトのライセンスを指定します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "cypher_level": {
+    "key": "cypher_level",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "AES 보안 알고리즘에 대한 암호 레벨을 지정합니다.",
+      "en": "Set the level of AES encryption algorithm.",
+      "ja": "AES瀬キューリティーアルゴリズムの暗号化レベルを指定します。"
+    },
+    "defaultValue": "128",
+    "type": "number",
+    "unit": "128 or 256"
+  },
+  "encrypt_level": {
+    "key": "encrypt_level",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "암호화 레벨을 지정합니다.\n                    1 암호화 전송 기능 미사용\n                    2 SQL 파라메타/Text 데이터 암호화\n                    3 모든 항목 암호화",
+      "en": "Set the level of encryption algorithm.\n                    1 Use transmission of encrypted data.\n                    2 Encrypt SQL parameter/Text data.\n                    3 Encrypt all data.",
+      "ja": "暗号化レベルを指定します。\n                    1 暗号化転送機能未使用\n                    2 SQLパラメタ/Textデータ暗号化\n                    3 全ての項目を暗号化"
+    },
+    "defaultValue": "2",
+    "type": "number",
+    "unit": "number"
+  },
+  "stat_ip_enabled": {
+    "key": "stat_ip_enabled",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "클라이언트IP 추적 기능을 활성화합니다.",
+      "en": "Trace client IP.",
+      "ja": "クライアントIP追跡機能を活性化します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "realtime_user_enabled": {
+    "key": "realtime_user_enabled",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "동시접속 사용자 수 추적 기능을 활성화합니다.",
+      "en": "Trace concurrent user count.",
+      "ja": "同時接続ユーザー数を追跡機能を有効にします。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "hook_direct_patch_classes": {
+    "key": "hook_direct_patch_classes",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "클래스 로딩 타이밍에 클래스를 교체합니다.",
+      "en": "Replace class when the class is loaded.",
+      "ja": "クラスロードタイミンングにクラスを入れ替えます。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "클래스 파일의 절대 경로",
+    "type": "string"
+  },
+  "active_stack_second": {
+    "key": "active_stack_second",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "액티브 스택의 수집 간격을 지정합니다.",
+      "en": "Set the period of collecting ActiveStack.",
+      "ja": "アクティブスタックを収集間隔を指定します。"
+    },
+    "badge": {
+      "yellow": "caution"
+    },
+    "defaultValue": "10",
+    "type": "number",
+    "unit": "second"
+  },
+  "boot_redefine_size": {
+    "key": "boot_redefine_size",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "attach 방식으로 에이전트 적용 시, BCI 대상 클래스 수를 지정합니다.",
+      "en": "Set the number of BCI target classes when applying agent by attach.",
+      "ja": "attach方式でエージェントを適用する際、BCI対象クラス数を指定します。"
+    },
+    "defaultValue": "100",
+    "type": "number",
+    "unit": "number"
+  },
+  "trace_component_enabled": {
+    "key": "trace_component_enabled",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "라이브러리 및 버전 추적 기능을 활성화합니다.",
+      "en": "Trace the version of libraries.",
+      "ja": "ライブラリー及びバージョン追跡機能を活性化します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "realtime_user_thinktime_max": {
+    "key": "realtime_user_thinktime_max",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "동시접속 사용자 추적 시, 동일 사용자로 인정되는 최대 호출 간격을 지정합니다.",
+      "en": "Set the maximum call period treated as the same user.",
+      "ja": "ユーザー追跡し、同一ユーザーと扱う最大呼出間隔を指定します。"
+    },
+    "defaultValue": "300000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "time_sync_interval_ms": {
+    "key": "time_sync_interval_ms",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "에이전트와 서버 시간 동기화 주기를 지정합니다.",
+      "en": "Set the period of time synchronization between agents and server.",
+      "ja": "エージェントとサーバーの時刻同期化周期を指定します。"
+    },
+    "defaultValue": "300000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "detect_deadlock_enabled": {
+    "key": "detect_deadlock_enabled",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "쓰레드 데드락 여부를 감지하여 이벤트를 발행합니다.",
+      "en": "Enable alarm of thread deadlock.",
+      "ja": "スレッドデッドロックを感知しイベント通知を発行します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "text_reset": {
+    "key": "text_reset",
+    "group": [
+      "agentManagement",
+      "controlAgent"
+    ],
+    "description": {
+      "ko": "에이전트는 동일 텍스트 데이터(URL, SQL등)를 일정 기간 동안 재전송하지 않습니다. 동일 텍스트 데이터를 재전송하고자 하는 경우 count up 하여 지정합니다.",
+      "en": "Agents do not send the same text data like URL and SQL at a time. Set the counted-up value when required to get the text data again.",
+      "ja": "エージェントは同一テキストデータ(URL,SQLなど)を一定期間の間には再転送しません。同一テキストデータを再転送したい場合はカウントアップした値を指定します。"
+    },
+    "defaultValue": "0",
+    "type": "number",
+    "unit": "number"
+  },
+  "whatap_server_host": {
+    "key": "whatap_server_host",
+    "group": [
+      "agentManagement",
+      "agentTransmission"
+    ],
+    "description": {
+      "ko": "수집 서버의 IP를 지정합니다.\n                    ex)127.0.0.1,127.0.0.2",
+      "en": "Set the server IP.\n                    ex)127.0.0.1,127.0.0.2",
+      "ja": "収集サーバーのIPを指定します。\n                    ex)127.0.0.1,127.0.0.2"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "whatap.server.port": {
+    "key": "whatap.server.port",
+    "group": [
+      "agentManagement",
+      "agentTransmission"
+    ],
+    "description": {
+      "ko": "수집서버 포트를 지정합니다.",
+      "en": "Set the server port.",
+      "ja": "収集サーバーのポートを指定します。"
+    },
+    "defaultValue": "6600",
+    "type": "number",
+    "unit": "number"
+  },
+  "tcp_so_timeout": {
+    "key": "tcp_so_timeout",
+    "group": [
+      "agentManagement",
+      "agentTransmission"
+    ],
+    "description": {
+      "ko": "수집서버와 통신하는 TCP 세션의 socket timeout을 지정합니다.",
+      "en": "Set the sokcet timeout of TCP session related with transmission to server.",
+      "ja": "収集サーバーと通信するTCPセッションのソケットタイムアウトを指定します。"
+    },
+    "defaultValue": "60000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "tcp_connection_timeout": {
+    "key": "tcp_connection_timeout",
+    "group": [
+      "agentManagement",
+      "agentTransmission"
+    ],
+    "description": {
+      "ko": "수집서버와 통신하는 TCP 세션의 connection timeout을 지정합니다.",
+      "en": "Set the connection timeout of TCP session related with transmission to server.",
+      "ja": "収集サーバーと通信するTCPセッションのコネクションタイムアウトを指定します。"
+    },
+    "defaultValue": "5000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "net_send_max_bytes": {
+    "key": "net_send_max_bytes",
+    "group": [
+      "agentManagement",
+      "agentTransmission"
+    ],
+    "description": {
+      "ko": "수집서버로 데이터 전송시, 단일 통신에서 전송할 최대 사이즈를 지정합니다.",
+      "en": "Set the maximum data size of a transmission to the server.",
+      "ja": "収集サーバーへデータ転送の際、単一通信で転送する最大サイズを指定します。"
+    },
+    "defaultValue": "5242880",
+    "type": "number",
+    "unit": "byte"
+  },
+  "net_send_queue1_size": {
+    "key": "net_send_queue1_size",
+    "group": [
+      "agentManagement",
+      "agentTransmission"
+    ],
+    "description": {
+      "ko": "트레이스 데이터 및 액티브 스택을 제외한 데이터 전송 시의 Queue 사이즈를 지정합니다.",
+      "en": "Set the queue size of data transmission except trace and ActiveStack.",
+      "ja": "トレースデータ及びアクティブスタックを除いたデータ転送時のQueueサイズを指定します。"
+    },
+    "defaultValue": "256",
+    "type": "number",
+    "unit": "number"
+  },
+  "net_send_queue2_size": {
+    "key": "net_send_queue2_size",
+    "group": [
+      "agentManagement",
+      "agentTransmission"
+    ],
+    "description": {
+      "ko": "트레이스 데이터 및 액티브 스택 전송 시의 Queue 사이즈를 지정합니다.",
+      "en": "Set the queue size of data transmission of trace and ActiveStack.",
+      "ja": "トレースデータ及びアクティブスタック転送時のQueueサイズを指定します。"
+    },
+    "defaultValue": "512",
+    "type": "number",
+    "unit": "number"
+  },
+  "log_datasource_lookup_enabled": {
+    "key": "log_datasource_lookup_enabled",
+    "group": [
+      "agentManagement",
+      "agentLog"
+    ],
+    "description": {
+      "ko": "InitialContext Lookup 시 DataSource인 경우 로그를 출력합니다.",
+      "en": "When looking up InitialContext with DataSource, log it.",
+      "ja": "InitialContext Lookupの際、DataSourceに該当する場合ログを出力します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "log_rotation_enabled": {
+    "key": "log_rotation_enabled",
+    "group": [
+      "agentManagement",
+      "agentLog"
+    ],
+    "description": {
+      "ko": "에이전트 로그 파일을 일자별로 출력합니다.",
+      "en": "Roll agent logs by date.",
+      "ja": "エージェントログファイルを日付毎に出力します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "log_keep_days": {
+    "key": "log_keep_days",
+    "group": [
+      "agentManagement",
+      "agentLog"
+    ],
+    "description": {
+      "ko": "로그 파일 보관 기간을 지정합니다.",
+      "en": "Set the retaining period of log files.",
+      "ja": "ログファイルの保管期間を指定します。"
+    },
+    "defaultValue": "7",
+    "type": "number",
+    "unit": "day"
+  },
+  "profile_step_normal_count": {
+    "key": "profile_step_normal_count",
+    "group": [
+      "dataCollectiingSizeControl",
+      "control"
+    ],
+    "description": {
+      "ko": "트랜잭션 트레이스의 최대 스텝 수를 지정합니다.",
+      "en": "Set the maximum step of transaction profiles.",
+      "ja": "トランザクションの最大ステップ数を指定します。"
+    },
+    "defaultValue": "1000",
+    "type": "number",
+    "unit": "number"
+  },
+  "profile_step_heavy_count": {
+    "key": "profile_step_heavy_count",
+    "group": [
+      "dataCollectiingSizeControl",
+      "control"
+    ],
+    "description": {
+      "ko": "트랜잭션 트레이스의 스텝 수가 과도하게 많은 경우 저장 최대 스텝 수를 지정합니다.",
+      "en": "Set the maximum step of transaction traces with heavy steps.",
+      "ja": "トランザクショントレースステップが大きすげる場合、保管する最大ステップ数を指定します。"
+    },
+    "defaultValue": "1020",
+    "type": "number",
+    "unit": "number"
+  },
+  "profile_step_heavy_time": {
+    "key": "profile_step_heavy_time",
+    "group": [
+      "dataCollectiingSizeControl",
+      "control"
+    ],
+    "description": {
+      "ko": "트랜잭션 트레이스의 스텝에서 소요되는 시간상 성능 지연을 판단할 기준을 지정합니다.",
+      "en": "Set the minimum time of step to mark as delayed step.",
+      "ja": "トランザクショントレースのステップの経過時間が大きいと判断する基準を指定します。"
+    },
+    "defaultValue": "100",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "profile_basetime": {
+    "key": "profile_basetime",
+    "group": [
+      "dataCollectiingSizeControl",
+      "control"
+    ],
+    "description": {
+      "ko": "상세 트레이스을 수집할 최소 응답시간을 지정합니다.",
+      "en": "Set the minimum response time to collect transaction detail trace.",
+      "ja": "詳細トレースを収集する最低応答時間を指定します。"
+    },
+    "badge": {
+      "yellow": "caution"
+    },
+    "defaultValue": "500",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "active_stack_count": {
+    "key": "active_stack_count",
+    "group": [
+      "dataCollectiingSizeControl",
+      "control"
+    ],
+    "description": {
+      "ko": "한 번에 획득 가능한 최대 액티브스택 수를 지정합니다.",
+      "en": "Set the maximum count of ActiveStack which can be got at a time.",
+      "ja": "一回で確保可能な最大アクティブスタックの数を指定します。"
+    },
+    "defaultValue": "100",
+    "type": "number",
+    "unit": "number"
+  },
+  "profile_position_depth": {
+    "key": "profile_position_depth",
+    "group": [
+      "dataCollectiingSizeControl",
+      "control"
+    ],
+    "description": {
+      "ko": "메소드를 지정하여 수집 할 StackTrace의 최대 라인 수를 지정합니다.",
+      "en": "Set the maximum StackTrace line count of a method.",
+      "ja": "メソッドを指定し収集するStackTraceの最大行数を指定します。"
+    },
+    "defaultValue": "50",
+    "type": "number",
+    "unit": "number"
+  },
+  "trace_error_callstack_depth": {
+    "key": "trace_error_callstack_depth",
+    "group": [
+      "dataCollectiingSizeControl",
+      "control"
+    ],
+    "description": {
+      "ko": "에러 발생 시 수집 할 StackTrace의 최대 라인 수를 지정합니다.",
+      "en": "Set the maximum StackTrace line count of errors.",
+      "ja": "エラー発生時に収集するStackTraceの最大行数を指定します。"
+    },
+    "defaultValue": "50",
+    "type": "number",
+    "unit": "number"
+  },
+  "trace_active_callstack_depth": {
+    "key": "trace_active_callstack_depth",
+    "group": [
+      "dataCollectiingSizeControl",
+      "control"
+    ],
+    "description": {
+      "ko": "액티브 스택에서 수집 할 StackTrace의 최대 라인 수를 지정합니다.",
+      "en": "Set the maximum StackTrace line count of ActiveStack.",
+      "ja": "アクティブスタックで収集するStackTraceの最大行数を指定します。"
+    },
+    "defaultValue": "50",
+    "type": "number",
+    "unit": "number"
+  },
+  "stat_referer_max_count": {
+    "key": "stat_referer_max_count",
+    "group": [
+      "dataCollectiingSizeControl",
+      "control"
+    ],
+    "description": {
+      "ko": "5분간 수집할 리퍼러의 최대 개수를 지정합니다.",
+      "en": "Set the maximum number of referer for 5 minutes.",
+      "ja": "5分間集計するリファラーの最大個数を指定します。"
+    },
+    "defaultValue": "50",
+    "type": "number",
+    "unit": "number"
+  },
+  "profile_http_header_enabled": {
+    "key": "profile_http_header_enabled",
+    "group": [
+      "tracing&DisplayOption",
+      "httpHeader"
+    ],
+    "description": {
+      "ko": "트레이스 상세 내역에 HTTP 헤더 정보를 표시할 지 지정합니다.",
+      "en": "Show HTTP header information on transaction trace.",
+      "ja": "トレースの詳細内訳でHTTPヘッダー情報を表示するかを指定します。"
+    },
+    "badge": {
+      "yellow": "caution"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "profile_http_header_url_prefix": {
+    "key": "profile_http_header_url_prefix",
+    "group": [
+      "tracing&DisplayOption",
+      "httpHeader"
+    ],
+    "description": {
+      "ko": "트레이스 내역에 HTTP 헤더 정보를 기록할 대상 URL의 prefix를 지정합니다.",
+      "en": "Set the prefix of target URL to show header information on transaction trace.",
+      "ja": "トレースの詳細にHTTTPヘッダー情報を記録する対象URLのプレフィックスを指定します。"
+    },
+    "defaultValue": "/",
+    "unit": "string",
+    "type": "string"
+  },
+  "profile_http_parameter_enabled": {
+    "key": "profile_http_parameter_enabled",
+    "group": [
+      "tracing&DisplayOption",
+      "httpParameter"
+    ],
+    "description": {
+      "ko": "트랜잭션의 쿼리 파라메타를 수집하여 트레이스에 노출할 지를 지정합니다.\n                    복호화키는 {에이전트 설치 위치}/paramkey.txt 에 6자리로 지정합니다.\n                    미지정 시에는 랜덤 값이 자동으로 생성됩니다. 에이전트 별로 상이하므로 원하는 복호화키를 지정합니다.",
+      "en": "Show query parameter of transaction on transaction trace.\n                    Decryption key is saved in {agent install path}/paramkey.txt.\n                    If not set, random key is issued. Set the key in file because the different key is issued for agents.",
+      "ja": "トランザクションのクエリパラメタを収集しトレースに表示するかを指定します。\n                    復号化キーは{エージェントのインストールパス}/paramkey.txtに指定します。\n                    未指定の場合はランダムキーが自動生成されます。エージェント毎にキーが生成されますのでユーザーがその値を指定します。"
+    },
+    "badge": {
+      "yellow": "caution"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "profile_http_parameter_url_prefix": {
+    "key": "profile_http_parameter_url_prefix",
+    "group": [
+      "tracing&DisplayOption",
+      "httpParameter"
+    ],
+    "description": {
+      "ko": "HTTP 쿼리 파라메타 정보를 수집하여 트레이스에 노출할 대상 URL의 prefix를 지정합니다.",
+      "en": "Set the prefix of target URL to show query parameter of transaction on transaction trace.",
+      "ja": "HTTPクエリパラメタ情報を収集しトレースに表示する対象URLのプレフィックスを指定します。"
+    },
+    "defaultValue": "/",
+    "unit": "string",
+    "type": "string"
+  },
+  "profile_exception_stack": {
+    "key": "profile_exception_stack",
+    "group": [
+      "tracing&DisplayOption",
+      "exceptionStack"
+    ],
+    "description": {
+      "ko": "Exception 스택을 트레이스에 노출할 지를 지정합니다.",
+      "en": "Show exception stack on transaction trace.",
+      "ja": "Exceptionスタックをトレースに表示するかを指定します。"
+    },
+    "badge": {
+      "yellow": "caution"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_normalize_enabled": {
+    "key": "trace_normalize_enabled",
+    "group": [
+      "transactionUrl",
+      "normalization"
+    ],
+    "description": {
+      "ko": "트랜잭션 URL을 정규화합니다.",
+      "en": "Normalize transaction URL.",
+      "ja": "トランザクションURLを正規化します。"
+    },
+    "badge": {
+      "yellow": "caution"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_auto_normalize_enabled": {
+    "key": "trace_auto_normalize_enabled",
+    "group": [
+      "transactionUrl",
+      "normalization"
+    ],
+    "description": {
+      "ko": "어노테이션에서 추출한 URL로 트랜잭션 URL을 정규화합니다.",
+      "en": "Normalize URLs by URLs extracted from annotations.",
+      "ja": "アノテーションから抽出したURLでトランザクションURLを正規化します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_normalize_urls": {
+    "key": "trace_normalize_urls",
+    "group": [
+      "transactionUrl",
+      "normalization"
+    ],
+    "description": {
+      "ko": "정규화 대상 URL을 등록합니다.",
+      "en": "Set the target URLs of normalization.",
+      "ja": "正規化対象URLを登録します。"
+    },
+    "badge": {
+      "yellow": "caution"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "trace_transaction_name_key": {
+    "key": "trace_transaction_name_key",
+    "group": [
+      "transactionUrl",
+      "transactionNameOption"
+    ],
+    "description": {
+      "ko": "HTTP 쿼리 파라메타 중 지정한 키에 해당하는 값을 추출하여 트랜잭션 식별 명에 추가합니다.\n                    ex) /products$productId=1",
+      "en": "Set the key by which get from query parameter and attach to transaction name.\n                    ex) /products$productId=1",
+      "ja": "HTTPクエリパラメタで指定したキーに該当する値を抽出しトランザクション名に追加します。\n                    ex) /products$productId=1"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "profile_method_resource_enabled": {
+    "key": "profile_method_resource_enabled",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "트레이스 메소드 스텝 수집 시 CPU 및 메모리 사용량 추적 기능을 활성화합니다.",
+      "en": "Trace CPU and memory usage when collecting method steps.",
+      "ja": "トレースメソッドステップ収集の際、CPU及びメモリ使用量追跡機能を活性化します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "profile_position_method": {
+    "key": "profile_position_method",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "StackTrace를 수집 할 메소드를 지정합니다.\n                {full package class명}.{메소드명} 또는 부분 문자열을 지정합니다.\n                hook_method_patterns 옵션과 함께 적용해야 합니다.\n                ex) a.b.C1.process\n                * 가능한 풀 패키지 클래스명과 메소드까지 지정하시는 것을 권장하며 \"*\" 표현은 사용 불가합니다.\n            ",
+      "en": "Set the method to collect StackTrace.\n                Set {full package class name}.{method} or a part of that.\n                The option of hook_method_patterns is prerequisite.\n                ex) a.b.C1.process\n                * You have better to set full package class name and method and \"*\" is not allowed.\n            ",
+      "ja": "StackTraceを収集するメソッドを指定します。\n                {full packageクラス名}.{メソッド}または一部文字列を指定します。\n                hook_method_patterns オプションと同時に適用する必要があります。\n                ex) a.b.C1.process\n                * 出来るだけフールパッケージクラス名とメソッドまで指定することをお勧めします。そして「*」は使えません。\n            "
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_httpservlet_classes": {
+    "key": "hook_httpservlet_classes",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "HTTP 트랜잭션 추적을 위한 Servlet 클래스를 지정합니다.",
+      "en": "Set the Servlet class to trace HTTP transaction.",
+      "ja": "HTTPトランザクション追跡のためのServletクラスを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_jsp_patterns": {
+    "key": "hook_jsp_patterns",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "jsp 파일을 로딩하는 메소드를 지정합니다.\n                    디폴트 적용값 - org.apache.jasper.servlet.JspServlet.serviceJspFile",
+      "en": "Set the method of loading jsp classes.\n                    Default Value - org.apache.jasper.servlet.JspServlet.serviceJspFile",
+      "ja": "jspファイルをロードするメソッドを指定します。\n                    デフォルト適用値 - org.apache.jasper.servlet.JspServlet.serviceJspFile"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_method_patterns": {
+    "key": "hook_method_patterns",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "메소드 진출입 갭 시간을 측정할 메소드를 지정합니다.\n                    {full package class명}.{메소드명} 을 지정합니다.\n                    Wild card(*)를 사용가능합니다.\n                    콤마 구분자를 사용하여 복수 지정가능합니다.\n                    a.b.C1.*,a.b.C2.*",
+      "en": "Set the method to collect gap time between entering into method and return from it.\n                    Set {full package class name}.{method}\n                    Can use Wild card(*).\n                    Can use comma separator when applying multiple.\n                    a.b.C1.*,a.b.C2.*",
+      "ja": "メソッド出入りGap時間を測定するメソッドを指定します。\n                    {full packageクラス名}.{メソッド}を指定します。\n                    Wild card(*)が使えます。\n                    コンマを使い複数指定できます。\n                    a.b.C1.*,a.b.C2.*"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_method_supers": {
+    "key": "hook_method_supers",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "메소드 진출입 갭 시간을 측정할 클래스의 extend 대상 클래스를 지정합니다.\n                    {full package class명} 을 지정합니다.\n                    Wild card(*)를 사용가능합니다.\n                    콤마 구분자를 사용하여 복수 지정가능합니다.\n                    a.b.C1,a.b.C2",
+      "en": "\n                    Set {full package class name}.\n                    Can use Wild card(*).\n                    Can use comma separator when applying multiple.\n                    a.b.C1,a.b.C2",
+      "ja": "メソッド出入りGap時間を測定するクラスのextend対象クラスを指定します。\n                    {full packageクラス名}を指定します。\n                    Wild card(*)が使えます。\n                    コンマを使い複数指定できます。\n                    a.b.C1,a.b.C2"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_method_interfaces": {
+    "key": "hook_method_interfaces",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "메소드 진출입 갭 시간을 측정할 클래스의 implement 대상 인터페이스를 지정합니다.\n                    {full package class명} 을 지정합니다.\n                    Wild card(*)를 사용가능합니다.\n                    콤마 구분자를 사용하여 복수 지정가능합니다.\n                    a.b.C1,a.b.C2",
+      "en": "\n                    Set {full package class name}.\n                    Can use Wild card(*).\n                    Can use comma separator when applying multiple.\n                    a.b.C1,a.b.C2",
+      "ja": "メソッド出入りGap時間を測定するクラスのimplement対象クラスを指定します。\n                    {full packageクラス名}を指定します。\n                    Wild card(*)が使えます。\n                    コンマを使い複数指定できます。\n                    a.b.C1,a.b.C2"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_method_ignore_prefixes": {
+    "key": "hook_method_ignore_prefixes",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "메소드 트레이스 대상에서 제외할 메소드명의 prefix를 지정합니다.\n                    콤마 구분자를 사용하여 복수 지정가능합니다.\n                    ex) get,set",
+      "en": "\n                    Can use comma separator when applying multiple.\n                    ex) get,set",
+      "ja": "メソッドトレース対象から除くメソッドのプレフィくすを指定します。\n                    コンマを使い複数指定できます。\n                    ex) get,set"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_method_ignore_classes": {
+    "key": "hook_method_ignore_classes",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "메소드 트레이스 대상에서 제외할 클래스명을 지정합니다.\n                    콤마 구분자를 사용하여 복수 지정가능합니다.\n                    ex) a.b.C1,a.b.C2",
+      "en": "\n                    Can use comma separator when applying multiple.\n                    ex) a.b.C1,a.b.C2",
+      "ja": "メソッドトレース対象から除くクラス名を指定します。\n                    コンマを使い複数指定できます。\n                    ex) a.b.C1,a.b.C2"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_method_access_public_enabled": {
+    "key": "hook_method_access_public_enabled",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "메소드 트레이스 대상에 public 메소드를 포함할 지 설정합니다.",
+      "en": "Trace public method for profiling method.",
+      "ja": "メソッドトレース対象にpublicメソッドを含めるかを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "hook_method_access_private_enabled": {
+    "key": "hook_method_access_private_enabled",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "메소드 트레이스 대상에 private 메소드를 포함할 지 설정합니다.",
+      "en": "Trace private method for profiling method.",
+      "ja": "メソッドトレース対象にprivateメソッドを含めるかを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "hook_method_access_protected_enabled": {
+    "key": "hook_method_access_protected_enabled",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "메소드 트레이스 대상에 protected 메소드를 포함할 지 설정합니다.",
+      "en": "Trace protected method for profiling method.",
+      "ja": "メソッドトレース対象にprotectedメソッドを含めるかを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "hook_method_access_none_enabled": {
+    "key": "hook_method_access_none_enabled",
+    "group": [
+      "httpTransaction",
+      "tracingTarget"
+    ],
+    "description": {
+      "ko": "메소드 트레이스 대상에 디폴트 접근 제어자가 지정된 메소드를 포함할 지 설정합니다.",
+      "en": "Trace default method for profiling method.",
+      "ja": "メソッドトレース対象にdefaultメソッドを含めるかを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "stacklog_socket_port": {
+    "key": "stacklog_socket_port",
+    "group": [
+      "httpTransaction",
+      "socketTracing"
+    ],
+    "description": {
+      "ko": "Socket.connect() 시, StackTrace를 에이전트 로그에 출력할 목적지 포트 번호를 지정합니다.",
+      "en": "Set the target destination port number of Socket.connect()",
+      "ja": "Socket.connect()の際、StackTraceをエージェントログへ出力する目的地ポート番号を指定します。"
+    },
+    "defaultValue": "0",
+    "type": "number",
+    "unit": "number"
+  },
+  "trace_background_socket_enabled": {
+    "key": "trace_background_socket_enabled",
+    "group": [
+      "httpTransaction",
+      "backgoundSocketTracing"
+    ],
+    "description": {
+      "ko": "백그라운드 쓰레드에 의한 소켓 오픈을 추적합니다.",
+      "en": "Trace opening of socket running at background.",
+      "ja": "バックグラウンドスレッドによるソケットオプんを追跡します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "async_stack_enabled": {
+    "key": "async_stack_enabled",
+    "group": [
+      "httpTransaction",
+      "asynchronousStackTracing"
+    ],
+    "description": {
+      "ko": "비동기 트랜잭션에 대해 액티브 스택을 확보합니다.",
+      "en": "Acquire ActiveStack for asynchronous transaction.",
+      "ja": "非同期トランザクションに対しアクティブスタックを確保します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "web_static_content_extensions": {
+    "key": "web_static_content_extensions",
+    "group": [
+      "httpTransaction",
+      "traceExclusion"
+    ],
+    "description": {
+      "ko": "컨텐츠의 확장자를 지정하여 트레이스 추적 대상에서 제외합니다.\n                    디폴트 적용값 - js,htm,gif,png,jpg,css,swf,ico",
+      "en": "Set the extension of contents to exclude from profiling transaction.\n                    Default Value - js,htm,gif,png,jpg,css,swf,ico",
+      "ja": "コンテンツの拡張子を指定しトレース追跡対象から除外します。\n                    デフォルト適用値 - js,htm,gif,png,jpg,css,swf,ico"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "trace_ignore_url_set": {
+    "key": "trace_ignore_url_set",
+    "group": [
+      "httpTransaction",
+      "traceExclusion"
+    ],
+    "description": {
+      "ko": "트랜잭션 추적 대상에서 제외할 URL을 지정합니다.",
+      "en": "Set the URLs to exclude from profiling transaction.",
+      "ja": "トランザクション追跡対象から除くURLを指定します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "trace_ignore_url_prefix": {
+    "key": "trace_ignore_url_prefix",
+    "group": [
+      "httpTransaction",
+      "traceExclusion"
+    ],
+    "description": {
+      "ko": "트랜잭션 추적 대상에서 제외할 URL prefix를 지정합니다.",
+      "en": "Set the URL prefix to exclude from profiling transaction.",
+      "ja": "トランザクション追跡対象から除くURLプレフィクスを指定します。"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "trace_auto_transaction_enabled": {
+    "key": "trace_auto_transaction_enabled",
+    "group": [
+      "notHttpTransaction",
+      "traceTargetting"
+    ],
+    "description": {
+      "ko": "트랜잭션 시작점으로 지정되지 않은 트랜잭션에 대상의 트레이스이 수집될 경우, 해당 메소드가 트랜잭션 시작점이 되도록 지정합니다.",
+      "en": "When trace is acquired at the transaction which is not included in starting point of transaction, treat the method as the starting point of transaction.",
+      "ja": "トランザクション開始ポイントとして指定されてないトランザクション対象のトレースが収集される場合、該当メソッドが開始ポイントになるよう指定します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "trace_auto_transaction_backstack_enabled": {
+    "key": "trace_auto_transaction_backstack_enabled",
+    "group": [
+      "notHttpTransaction",
+      "traceTargetting"
+    ],
+    "description": {
+      "ko": "트랜잭션 시작점이 자동 지정된 트랜잭션의 StackTrace를 확보하여 트레이스에 표시합니다.",
+      "en": "Acquire the StackTrace of the transaction of which starting point is set automatically and show it on trace.",
+      "ja": "トランザクション開始ポイントが自動で指定された場合、StackTraceを確保しトレースに表示します。"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "hook_service_patterns": {
+    "key": "hook_service_patterns",
+    "group": [
+      "notHttpTransaction",
+      "traceNonHttpTransaction"
+    ],
+    "description": {
+      "ko": "트랜잭션 시작점 패턴(full package 클래스명 + 메소드명)을 지정합니다.",
+      "en": "Set the starting point pattern(full package class + method) of transaction.",
+      "ja": "トランザクション開始ポイントパターン(full package クラス名 + メソッド)を指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_service_supers": {
+    "key": "hook_service_supers",
+    "group": [
+      "notHttpTransaction",
+      "traceNonHttpTransaction"
+    ],
+    "description": {
+      "ko": "NON-HTTP 트랜잭션을 추적할 클래스의 extend 대상 클래스를 지정합니다.\n                    {full package class명} 을 지정합니다.\n                    Wild card(*)를 사용가능합니다.\n                    콤마 구분자를 사용하여 복수 지정가능합니다.\n                    a.b.C1,a.b.C2",
+      "en": "Set the target class of extension of NON-HTTP transaction.\n                    Set {full package class name}\n                    Wild card(*)が使えます。\n                    Can use comma separator when applying multiple.\n                    a.b.C1,a.b.C2",
+      "ja": "NON-HTTPトランザクションを追跡するクラスのextend対象クラスを指定します。\n                    {full package class명} 을 지정합니다.\n                    Wild card(*)를 사용가능합니다.\n                    콤마 구분자를 사용하여 복수 지정가능합니다.\n                    a.b.C1,a.b.C2"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_service_interfaces": {
+    "key": "hook_service_interfaces",
+    "group": [
+      "notHttpTransaction",
+      "traceNonHttpTransaction"
+    ],
+    "description": {
+      "ko": "NON-HTTP 트랜잭션을 추적할 클래스의 implement 대상 인터페이스를 지정합니다.\n                    {full package class명} 을 지정합니다.\n                    Wild card(*)를 사용가능합니다.\n                    콤마 구분자를 사용하여 복수 지정가능합니다.\n                    a.b.C1,a.b.C2",
+      "en": "Set the target class of implementation of NON-HTTP transaction.\n                    Set {full package class name}\n                    Wild card(*)が使えます。\n                    Can use comma separator when applying multiple.\n                    a.b.C1,a.b.C2",
+      "ja": "NON-HTTPトランザクションを追跡するクラスのimplement対象クラスを指定します。\n                    {full package class명} 을 지정합니다.\n                    Wild card(*)를 사용가능합니다.\n                    콤마 구분자를 사용하여 복수 지정가능합니다.\n                    a.b.C1,a.b.C2"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_service_access_public_enabled": {
+    "key": "hook_service_access_public_enabled",
+    "group": [
+      "notHttpTransaction",
+      "traceNonHttpTransaction"
+    ],
+    "description": {
+      "ko": "NON-HTTP 트랜잭션 추적 대상에 public 메소드를 포함할 지 설정합니다.",
+      "en": "Trace the public method of starting point class of NON-HTTP transaction.",
+      "ja": "NON-HTTPトランザクションを追跡対象へpublicメソッドを含めるかを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "hook_service_access_private_enabled": {
+    "key": "hook_service_access_private_enabled",
+    "group": [
+      "notHttpTransaction",
+      "traceNonHttpTransaction"
+    ],
+    "description": {
+      "ko": "NON-HTTP 트랜잭션 추적 대상에 private 메소드를 포함할 지 설정합니다.",
+      "en": "Trace the private method of starting point class of NON-HTTP transaction.",
+      "ja": "NON-HTTPトランザクションを追跡対象へprivateメソッドを含めるかを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "hook_service_access_protected_enabled": {
+    "key": "hook_service_access_protected_enabled",
+    "group": [
+      "notHttpTransaction",
+      "traceNonHttpTransaction"
+    ],
+    "description": {
+      "ko": "NON-HTTP 트랜잭션 추적 대상에 protected 메소드를 포함할 지 설정합니다.",
+      "en": "Trace the protected method of starting point class of NON-HTTP transaction.",
+      "ja": "NON-HTTPトランザクションを追跡対象へprotectedメソッドを含めるかを指定します。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "true",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "hook_future_classes": {
+    "key": "hook_future_classes",
+    "group": [
+      "notHttpTransaction",
+      "traceNonHttpTransaction"
+    ],
+    "description": {
+      "ko": "java.util.concurrent.Future 인터페이스를 implement 한 클래스를 지정하여 비동기 클래스 추적시에 활용합니다.\n                    {full package class명} 을 지정합니다.\n                    콤마 구분자를 사용하여 복수 지정가능합니다.\n                    a.b.C1,a.b.C2",
+      "en": "Set the class implementing java.util.concurrent.Future interface for tracing asynchronous call.\n                    Set {full package class name}\n                    Can use comma separator when applying multiple.\n                    a.b.C1,a.b.C2",
+      "ja": "java.util.concurrent.Futureインタフェースをimplementしたクラスを指定し非同期クラス追跡時に活用します。\n                    {full packageクラス名}.{メソッド}を指定します。\n                    Wild card(*)が使えます。\n                    コンマを使い複数指定できます。\n                    a.b.C1,a.b.C2"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_runnable_classes": {
+    "key": "hook_runnable_classes",
+    "group": [
+      "notHttpTransaction",
+      "traceNonHttpTransaction"
+    ],
+    "description": {
+      "ko": "java.lang.Runnable 인터페이스를 implement 한 클래스를 지정하여 비동기 클래스 추적시에 활용합니다.\n                    {full package class명} 을 지정합니다.\n                    콤마 구분자를 사용하여 복수 지정가능합니다.\n                    a.b.C1,a.b.C2",
+      "en": "Set the class implementing java.lang.Runnable interface for tracing asynchronous call.\n                    Set {full package class name}\n                    Can use comma separator when applying multiple.\n                    a.b.C1,a.b.C2",
+      "ja": "java.lang.Runnableインタフェースをimplementしたクラスを指定し非同期クラス追跡時に活用します。\n                    {full packageクラス名}.{メソッド}を指定します。\n                    Wild card(*)が使えます。\n                    コンマを使い複数指定できます。\n                    a.b.C1,a.b.C2"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_runnable_prefix": {
+    "key": "hook_runnable_prefix",
+    "group": [
+      "notHttpTransaction",
+      "traceNonHttpTransaction"
+    ],
+    "description": {
+      "ko": "java.lang.Runnable 인터페이스를 implement 한 클래스의 prefix를 지정하여 비동기 클래스 추적시에 활용합니다.\n                    {full package class명} 을 지정합니다.\n                    콤마 구분자를 사용하여 복수 지정가능합니다.",
+      "en": "Set the prefix of the class implementing java.lang.Runnable interface for tracing asynchronous call.\n                    Set {full package class name}\n                    Can use comma separator when applying multiple.\n                    a.b.C1,a.b.C2",
+      "ja": "java.lang.Runnableインタフェースをimplementしたクラスのプレフィクスを指定し非同期クラス追跡時に活用します。\n                    {full packageクラス名}.{メソッド}を指定します。\n                    コンマを使い複数指定できます。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "heapdump_enabled": {
+    "key": "heapdump_enabled",
+    "group": [
+      "controlSynchronousHeapDump"
+    ],
+    "description": {
+      "ko": "Heap Dump 호출 옵션을 활성화 합니다.\n                    서버 > 더보기 > 시스템 GC/힙 덤프 화면에서 Heap Dump를 실행할 수 있습니다.",
+      "en": "Enable dumping heap.\n                    SERVERS > More > System GC/Heap Dump",
+      "ja": "ヒープダンプ呼出オプションを活性化します。\n                    サーバー > 下位メニュー > システムGC/ヒープダンプ　画面でヒープダンプが実行できます。"
+    },
+    "badge": {
+      "green": "애플리케이션 재시작 필요"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "gclog_enabled": {
+    "key": "gclog_enabled",
+    "group": [
+      "gcLogTracing",
+      "enable"
+    ],
+    "description": {
+      "ko": "Full GC log 수집 옵션을 활성화 합니다.",
+      "en": "Trace full GC log.",
+      "ja": "Full GCログの収集オプションを活性化します。"
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  },
+  "gclog_file": {
+    "key": "gclog_file",
+    "group": [
+      "gcLogTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "Full GC log 파일 경로를 지정합니다.",
+      "en": "Set the full GC log file.",
+      "ja": "Full GCログファイルを指定します。"
+    },
+    "defaultValue": "null",
+    "unit": "string",
+    "type": "string"
+  },
+  "gclog_word": {
+    "key": "gclog_word",
+    "group": [
+      "gcLogTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "Full GC 검출 키워드를 지정합니다.",
+      "en": "Set the keyword for detecting full GC from log.",
+      "ja": "Full GCログファイルから検出するキーワードを指定します。"
+    },
+    "defaultValue": "Full GC",
+    "unit": "string",
+    "type": "string"
+  },
+  "gclog_check_interval": {
+    "key": "gclog_check_interval",
+    "group": [
+      "gcLogTracing",
+      "tracingOption"
+    ],
+    "description": {
+      "ko": "Full GC 체크 간격을 지정합니다.",
+      "en": "Set the period to check the occurence of full GC.",
+      "ja": "Full GCログファイルのチェック間隔を指定します。"
+    },
+    "defaultValue": "2000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "trace_active_transaction_yellow_time": {
+    "key": "trace_active_transaction_yellow_time",
+    "group": [
+      "displayOption"
+    ],
+    "description": {
+      "ko": "액티브 트랜잭션 차트에 황색으로 표현할 기준을 지정합니다.",
+      "en": "Set the minimum response time for displaying as yellow on Active Transaction chart.",
+      "ja": "アクティブトランザクションで黄色で表示する基準応答時間を指定します。"
+    },
+    "defaultValue": "3000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "trace_active_transaction_red_time": {
+    "key": "trace_active_transaction_red_time",
+    "group": [
+      "displayOption"
+    ],
+    "description": {
+      "ko": "액티브 트랜잭션 차트에 적색으로 표현할 기준을 지정합니다.",
+      "en": "Set the minimum response time for displaying as red on Active Transaction chart.",
+      "ja": "アクティブトランザクションで赤色で表示する基準応答時間を指定します。"
+    },
+    "defaultValue": "8000",
+    "type": "number",
+    "unit": "millisecond"
+  },
+  "hook_trace_helper_patterns": {
+    "key": "hook_trace_helper_patterns",
+    "group": [
+      "agentPlugin",
+      "pluginWeavingPoint"
+    ],
+    "description": {
+      "ko": "Hot SWAP 코드를 삽입할 지점(클래스 및 메소드)을 지정합니다. 메소드의 시작/종료 타아밍에 삽입됩니다.\n                    삽입될 코드는 다음 위치에 작성합니다.\n                    {에이전트 설치 경로}/plugin/TraceHelperStart.x\n                    {에이전트 설치 경로}/plugin/TraceHelperEnd.x",
+      "en": "Set the point(class and method) to weave Hot SWAP code into. The code is weaved at the starting and end point of method.\n                    Write the code to file below.\n                    {agent install path}/plugin/TraceHelperStart.x\n                    {agent install path}/plugin/TraceHelperEnd.x",
+      "ja": "Hot SWAPコードを挿入するポイント(クラス及びメソッド)を指定します。メソッドの開始/終了タイミンングに挿入されます。\n                    挿入するコードは次に作成します。\n                    {エージェントインストールパス}/plugin/TraceHelperStart.x\n                    {エージェントインストールパス}/plugin/TraceHelperEnd.x"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_trace_helper_start_patterns": {
+    "key": "hook_trace_helper_start_patterns",
+    "group": [
+      "agentPlugin",
+      "pluginWeavingPoint"
+    ],
+    "description": {
+      "ko": "Hot SWAP 코드를 삽입할 지점(클래스 및 메소드)을 지정합니다. 메소드 시작 타이밍에 삽입됩니다.\n                    삽입될 코드는 다음 위치에 작성합니다.\n                    {에이전트 설치 경로}/plugin/TraceHelperStart.x",
+      "en": "Set the point(class and method) to weave Hot SWAP code into. The code is weaved at the starting point of method.\n                    Write the code to file below.\n                    {agent install path}/plugin/TraceHelperStart.x",
+      "ja": "Hot SWAPコードを挿入するポイント(クラス及びメソッド)を指定します。メソッドの開始タイミンングに挿入されます。\n                    挿入するコードは次に作成します。\n                    {エージェントインストールパス}/plugin/TraceHelperStart.x"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "hook_trace_helper_end_patterns": {
+    "key": "hook_trace_helper_end_patterns",
+    "group": [
+      "agentPlugin",
+      "pluginWeavingPoint"
+    ],
+    "description": {
+      "ko": "Hot SWAP 코드를 삽입할 지점(클래스 및 메소드)을 지정합니다. 메소드 종료 타이밍에 삽입됩니다.\n                    삽입될 코드는 다음 위치에 작성합니다.\n                    {에이전트 설치 경로}/plugin/TraceHelperEnd.x",
+      "en": "Set the point(class and method) to weave Hot SWAP code into. The code is weaved at the end point of method.\n                    Write the code to file below.\n                    {agent install path}/plugin/TraceHelperEnd.x",
+      "ja": "Hot SWAPコードを挿入するポイント(クラス及びメソッド)を指定します。メソッドの終了タイミンングに挿入されます。\n                    挿入するコードは次に作成します。\n                    {エージェントインストールパス}/plugin/TraceHelperEnd.x"
+    },
+    "unit": "string",
+    "type": "string"
+  },
+  "perfx_java_enabled": {
+    "key": "perfx_java_enabled",
+    "group": [
+      "tagCounter",
+      "enable"
+    ],
+    "description": {
+      "ko": "메모리/GC/OS 자원 수집 옵션을 활성화 합니다.\n                * 관리 > 커스텀 > 사용자 지정 카운트 데이터, 사용자 지정 카운트 차트\n            ",
+      "en": "Trace memory/GC/OS resourcee.\n                * Management > Custom > Custom count data, chart\n            ",
+      "ja": "メモリ・GC・OSリソースの収集オプションを活性化します。\n                * 管理 > カスタム > カスタムカウンターデータ、カスタムカウンターチャート\n            "
+    },
+    "defaultValue": "false",
+    "unit": "bool",
+    "type": "boolean"
+  }
+}
