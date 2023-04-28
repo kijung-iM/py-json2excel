@@ -10,16 +10,26 @@ for i in agentsettings:
             print(j, " - ", options[j])
         elif j == "group":
             # loop -> 차례로 입력
-            print(j, " - ", options[j])
+            print("group:")
+            groups = options[j]
+            for k in groups:
+                print("\t", k)
         elif j == "description":
             # loop -> 차례로 입력
-            print(j, " - ", options[j])
+            languages = options[j]
+            print("languages:")
+            for lang in languages:
+                print(lang, " - ", languages[lang])
         elif j == "badge":
             # loop -> 차례로 입력
-            print(j, " - ", options[j])
+            print("badge:")
+            badges = options[j]
+            for badge in badges:
+                print("\t", badge, " : ", badges[badge])
         elif j == "defaultValue":
             print(j, " - ", options[j])
         elif j == "type":
             print(j, " - ", options[j])
         elif j == "unit":
             print(j, " - ", options[j])
+    print("==================================")
